@@ -3,7 +3,12 @@ verde2 = #459F83
 verde3 = #A2B87A
 .verde3
 	color verde3
+.verde2
+	color verde2
+.verde
+	color verde
 gris = #57646D
+gris2 = #E6E7E9
 .handlee
 	font-family 'Handlee', cursive
 body
@@ -35,6 +40,56 @@ body
 		padding 183px 30px 0 30px
 		.title
 			font-size 2.2em
+.last-uploaded-item
+	background white
+	margin 20px 0
+	padding 0
+	figure
+		padding 0
+		margin 0
+		width 49%
+		display inline-block
+		vertical-align top
+		img
+			width 100%
+			height auto
+	.info
+		width 50%
+		display inline-block
+		padding 10px
+.container-fluid.search
+	background-color white
+	margin-top 40px
+	padding-top 50px
+	padding-bottom 50px
+.container.form
+	background gris2
+	padding-top 30px
+	padding-bottom 30px
+	.search-title
+		font-size 2em
+	.btn.btn-primary
+		background verde
+		border-color verde
+		width 100%
+		font-size 1.4em
+/*ABOUT US*/
+.about-us
+	iframe
+		width 100%
+		height auto
+		display block
+		overflow hidden
+.about-us-images
+	padding-bottom 40px
+	img
+		width 100%
+		height auto
+		margin-top 20px
+/*Notice*/
+.privacy-notice
+	padding-top 40px
+	padding-bottom 40px
 footer
 	background-color gris
 	color white
@@ -45,3 +100,42 @@ footer
 		color verde2
 	a
 		color verde3
+@media screen and (min-width:480px)
+	.last-uploaded-item
+		.info
+			padding 10px 20px
+			.title
+				margin-bottom 20px
+	/*ABOUT US*/
+	.about-us
+		iframe
+			width 100%
+			height auto
+			min-height 260px
+@media screen and (min-width:768px)
+	h1
+		font-size 3em
+		margin 40px 0
+	.last-uploaded-item
+		background white
+		margin 0
+		padding 0
+		background transparent
+		.item-container
+			width 90%
+			margin 0 auto
+			overflow hidden
+			background white
+		figure
+			width 100%
+			display block
+		.info
+			width 100%
+			display block
+			height 150px
+			overflow hidden
+	/*ABOUT US*/
+	.about-us
+		iframe
+			width 100%
+			height auto

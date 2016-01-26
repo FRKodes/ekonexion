@@ -122,6 +122,12 @@
 .verde3 {
   color: #a2b87a;
 }
+.verde2 {
+  color: #459f83;
+}
+.verde {
+  color: #9fd8d2;
+}
 .handlee {
   font-family: 'Handlee', cursive;
 }
@@ -162,6 +168,67 @@ body {
 .main-banner .item .title {
   font-size: 2.2em;
 }
+.last-uploaded-item {
+  background: #fff;
+  margin: 20px 0;
+  padding: 0;
+}
+.last-uploaded-item figure {
+  padding: 0;
+  margin: 0;
+  width: 49%;
+  display: inline-block;
+  vertical-align: top;
+}
+.last-uploaded-item figure img {
+  width: 100%;
+  height: auto;
+}
+.last-uploaded-item .info {
+  width: 50%;
+  display: inline-block;
+  padding: 10px;
+}
+.container-fluid.search {
+  background-color: #fff;
+  margin-top: 40px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.container.form {
+  background: #e6e7e9;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.container.form .search-title {
+  font-size: 2em;
+}
+.container.form .btn.btn-primary {
+  background: #9fd8d2;
+  border-color: #9fd8d2;
+  width: 100%;
+  font-size: 1.4em;
+}
+/*ABOUT US*/
+.about-us iframe {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: hidden;
+}
+.about-us-images {
+  padding-bottom: 40px;
+}
+.about-us-images img {
+  width: 100%;
+  height: auto;
+  margin-top: 20px;
+}
+/*Notice*/
+.privacy-notice {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
 footer {
   background-color: #57646d;
   color: #fff;
@@ -174,6 +241,51 @@ footer .contact {
 }
 footer a {
   color: #a2b87a;
+}
+@media screen and (min-width: 480px) {
+  .last-uploaded-item .info {
+    padding: 10px 20px;
+  }
+  .last-uploaded-item .info .title {
+    margin-bottom: 20px;
+  }
+  .about-us iframe {
+    width: 100%;
+    height: auto;
+    min-height: 260px;
+  }
+}
+@media screen and (min-width: 768px) {
+  h1 {
+    font-size: 3em;
+    margin: 40px 0;
+  }
+  .last-uploaded-item {
+    background: #fff;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+  }
+  .last-uploaded-item .item-container {
+    width: 90%;
+    margin: 0 auto;
+    overflow: hidden;
+    background: #fff;
+  }
+  .last-uploaded-item figure {
+    width: 100%;
+    display: block;
+  }
+  .last-uploaded-item .info {
+    width: 100%;
+    display: block;
+    height: 150px;
+    overflow: hidden;
+  }
+  .about-us iframe {
+    width: 100%;
+    height: auto;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

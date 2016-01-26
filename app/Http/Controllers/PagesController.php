@@ -16,6 +16,21 @@ class PagesController extends Controller {
 	{
 		return View('pages.index');
 	}
+	
+	public function nosotros()
+	{
+		return View('pages.nosotros');
+	}
+	
+	public function inscribe()
+	{
+		return View('pages.inscribe');
+	}
+	
+	public function aviso()
+	{
+		return View('pages.aviso');
+	}
 
 
 }
