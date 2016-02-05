@@ -4,7 +4,7 @@
 
 @section('content')
 	<div class="container privacy-notice">
-		<p class="text-center">Ekonexión</p>
+		<p class="text-center">{!! HTML::image('images/logo-ekonexion.svg', 'logo ekonexion', array('width'=>'200', 'class'=>'inner-logo')) !!}</p>
 		<p class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, libero, qui.</p>
 		<h1 class="handlee verde2 text-center">Aviso de privacidad</h1>
 		<p>

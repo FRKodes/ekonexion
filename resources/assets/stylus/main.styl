@@ -1,21 +1,32 @@
 verde = #9FD8D2
 verde2 = #459F83
 verde3 = #A2B87A
+gris = #57646D
+gris2 = #E6E7E9
+azul = #36B0E3
 .verde3
 	color verde3
 .verde2
 	color verde2
 .verde
 	color verde
-gris = #57646D
-gris2 = #E6E7E9
+.azul
+	color azul
+a
+	color azul
+img
+	padding 0
+.inner-logo
+	margin-top -50px
+.text-center.login
+	margin-top -70px
 .handlee
 	font-family 'Handlee', cursive
 body
 	background #F2F2F2
 	font-family 'Source Sans Pro', sans-serif
 .navbar-default
-	background-color verde
+	background-color rgba(verde,.8)
 	border-color verde
 	.navbar-toggle
 		border none
@@ -26,17 +37,23 @@ body
 			
 		.icon-bar
 			background-color white
-			width 36px
 			height 4px
+			width 36px
 	.navbar-nav>li>a
 		color white
 .navbar
 	margin-bottom 0
+.navbar-brand
+	overflow hidden
+	img
+		height auto
+		margin-top -40px
+		width 100px
 .main-banner
 	.item
-		height 300px
 		background transparent url(../../images/banner.jpg) no-repeat center top
 		color white
+		height 300px
 		padding 183px 30px 0 30px
 		.title
 			font-size 2.2em
@@ -45,59 +62,68 @@ body
 	margin 20px 0
 	padding 0
 	figure
-		padding 0
-		margin 0
-		width 49%
 		display inline-block
+		margin 0
+		padding 0
 		vertical-align top
+		width 49%
 		img
-			width 100%
 			height auto
+			width 100%
 	.info
-		width 50%
 		display inline-block
 		padding 10px
+		width 50%
 .container-fluid.search
 	background-color white
 	margin-top 40px
-	padding-top 50px
 	padding-bottom 50px
+	padding-top 50px
 .container.form
 	background gris2
-	padding-top 30px
 	padding-bottom 30px
+	padding-top 30px
 	.search-title
 		font-size 2em
 	.btn.btn-primary
 		background verde
 		border-color verde
-		width 100%
 		font-size 1.4em
+		width 100%
 /*ABOUT US*/
 .about-us
 	iframe
-		width 100%
-		height auto
 		display block
+		height auto
 		overflow hidden
+		width 100%
 .about-us-images
 	padding-bottom 40px
 	img
-		width 100%
 		height auto
 		margin-top 20px
+		width 100%
 /*Notice*/
 .privacy-notice
-	padding-top 40px
 	padding-bottom 40px
+	padding-top 40px
+/*Login*/
+.form-control
+	border-radius 0
+	border-color #D9D9D9
+.btn.btn-primary.login
+	width 100%
+	background-color verde
+	border-radius 0
+	border-color verde
 footer
 	background-color gris
 	color white
-	padding-top 30px
 	padding-bottom 30px
+	padding-top 30px
 	.contact
-		font-size 2.8em
 		color verde2
+		font-size 2.8em
 	a
 		color verde3
 @media screen and (min-width:480px)
@@ -109,33 +135,33 @@ footer
 	/*ABOUT US*/
 	.about-us
 		iframe
-			width 100%
 			height auto
 			min-height 260px
+			width 100%
 @media screen and (min-width:768px)
 	h1
 		font-size 3em
 		margin 40px 0
 	.last-uploaded-item
+		background transparent
 		background white
 		margin 0
 		padding 0
-		background transparent
 		.item-container
-			width 90%
+			background white
 			margin 0 auto
 			overflow hidden
-			background white
+			width 90%
 		figure
-			width 100%
 			display block
-		.info
 			width 100%
+		.info
 			display block
 			height 150px
 			overflow hidden
+			width 100%
 	/*ABOUT US*/
 	.about-us
 		iframe
-			width 100%
 			height auto
+			width 100%
