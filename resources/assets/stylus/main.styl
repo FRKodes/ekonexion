@@ -12,16 +12,25 @@ azul = #36B0E3
 	color verde
 .azul
 	color azul
-a
+a.btn.btn-link
 	color azul
 img
 	padding 0
 .inner-logo
 	margin-top -50px
+	position relative
+	z-index 1
+.text-center
+	overflow hidden
 .text-center.login
 	margin-top -70px
+	padding-left 30px
+	padding-right 30px
 .handlee
 	font-family 'Handlee', cursive
+h1.handlee.verde2
+	margin-left -15px
+	line-height 1.4em
 body
 	background #F2F2F2
 	font-family 'Source Sans Pro', sans-serif
@@ -43,6 +52,7 @@ body
 		color white
 .navbar
 	margin-bottom 0
+	font-family 'Handlee', cursive
 .navbar-brand
 	overflow hidden
 	img
@@ -51,12 +61,12 @@ body
 		width 100px
 .main-banner
 	.item
-		background transparent url(../../images/banner.jpg) no-repeat center top
+		background gray url(../../images/banner.jpg) no-repeat center top
 		color white
 		height 300px
 		padding 183px 30px 0 30px
 		.title
-			font-size 2.2em
+			font-size 2.2em			
 .last-uploaded-item
 	background white
 	margin 20px 0
@@ -74,6 +84,8 @@ body
 		display inline-block
 		padding 10px
 		width 50%
+.last-uploaded.bottom
+	margin-bottom 40px
 .container-fluid.search
 	background-color white
 	margin-top 40px
@@ -90,6 +102,10 @@ body
 		border-color verde
 		font-size 1.4em
 		width 100%
+.form-group.dashed
+	border 1px dashed gray
+	height 200px
+	background white url(../../images/nube.jpg) no-repeat center center
 /*ABOUT US*/
 .about-us
 	iframe
@@ -107,6 +123,41 @@ body
 .privacy-notice
 	padding-bottom 40px
 	padding-top 40px
+/*Detail*/
+.container.detail
+	padding-top 40px
+.col-sm-6.white
+	background white
+	padding-top 20px
+	figure
+		padding 0
+		text-align center
+		img
+			width 98%
+	h1.handlee.verde2
+		margin-left initial
+		margin-top 0
+		line-height 1em
+		font-size 2em
+	&.description
+		margin-top -20px
+		padding-bottom 30px
+.gallery-item:last-of-type
+	padding-bottom 30px
+		
+.info-container
+	background white
+	height auto
+	overflow hidden
+	padding-top 20px
+	padding-bottom 20px
+	.col-xs-3
+	.col-xs-9
+		line-height 1.8em
+	.map-container
+		margin-top 20px
+		img
+			width 100%
 /*Login*/
 .form-control
 	border-radius 0
@@ -116,6 +167,8 @@ body
 	background-color verde
 	border-radius 0
 	border-color verde
+.row.register
+	margin-bottom 50px
 footer
 	background-color gris
 	color white
@@ -139,6 +192,17 @@ footer
 			min-height 260px
 			width 100%
 @media screen and (min-width:768px)
+	.navbar-nav
+		padding-top 15px
+		z-index 10
+	.navbar-nav
+		li
+			&:last-of-type a
+				border none
+			a
+				border-right 1px solid white
+				padding-bottom 0
+				padding-top 0
 	h1
 		font-size 3em
 		margin 40px 0
@@ -165,3 +229,30 @@ footer
 		iframe
 			height auto
 			width 100%
+	/*DETAIL*/
+	.container.detail
+		background white
+		margin-top 30px
+		padding-top 20px
+	.col-sm-6.white
+		h1.handlee.verde2
+			font-size 1.6em
+		&.description
+			margin-top 0
+			height auto
+	.info-container
+		width 100%
+@media screen and (min-width:992px)
+	.text-center.login
+		padding-left 0
+		padding-right 0
+		margin-top -50px
+	.inner-logo
+		margin-top 0
+	.row.register
+		margin-bottom 150px
+@media screen and (min-width:1280px)
+	.main-banner
+		height 400px
+		.item
+			height 400px

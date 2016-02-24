@@ -32,5 +32,10 @@ class PagesController extends Controller {
 		return View('pages.aviso');
 	}
 
+	public function itemDetalle()
+	{
+		return View('pages.itemDetalle');
+	}
+
 
 }

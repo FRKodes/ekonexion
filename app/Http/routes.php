@@ -17,6 +17,7 @@ Route::get('/', 'PagesController@index');
 Route::get('nosotros', 'PagesController@nosotros');
 Route::get('inscribe-tu-negocio', 'PagesController@inscribe');
 Route::get('aviso-de-privacidad', 'PagesController@aviso');
+Route::get('negocio/{id}', 'PagesController@itemDetalle');
 
 Route::get('home', 'HomeController@index');
 
