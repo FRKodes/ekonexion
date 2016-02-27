@@ -6,7 +6,7 @@ elixir(function(mix) {
 	mix.stylus('main.styl')
 		.styles([
 			'public/css/bootstrap.min.css',
-			// 'public/css/icons-font.css',
+			'public/css/icons-font.css',
 			// 'public/css/magic.min.css',
 			'public/css/slick.css',
 			'public/css/main.css'

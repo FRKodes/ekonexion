@@ -197,9 +197,20 @@ body {
   width: 100%;
 }
 /*Login*/
+.form-group span {
+  width: 8%;
+  display: inline-block;
+  color: #ccc;
+  font-size: 2.1em;
+}
 .form-control {
   border-radius: 0;
   border-color: #d9d9d9;
+}
+.form-control.ninety {
+  width: 90%;
+  display: inline-block;
+  float: right;
 }
 .btn.btn-primary.login {
   width: 100%;

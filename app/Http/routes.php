@@ -18,6 +18,12 @@ Route::get('nosotros', 'PagesController@nosotros');
 Route::get('inscribe-tu-negocio', 'PagesController@inscribe');
 Route::get('aviso-de-privacidad', 'PagesController@aviso');
 Route::get('negocio/{id}', 'PagesController@itemDetalle');
+// Route::get('negocio/create', 'NegocioController@create');
+Route::resource('negocios', 'NegociosController', [
+	'except' => [
+				'index', 'edit', 'update'
+				]
+	]);
 
 Route::get('home', 'HomeController@index');
 
