@@ -12,15 +12,15 @@
 
 					<h1 class="handlee verde2">Registra tu negocio</h1>
 
-					<form class="form-horizontal" role="form" method="POST" action="{{ url('/auth/login') }}">
+					<form class="form-horizontal" role="form" method="POST" action="{{ url('negocios') }}" id="registerForm">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-						<div class="form-group"><input type="text" class="form-control" name="nombre_negocio" placeholder="*Nombre del negocio" value=""></div>
-						<div class="form-group"><input type="email" class="form-control" name="email" placeholder="*Correo" value="{{ old('email') }}"></div>
-						<div class="form-group"><textarea class="form-control" name="descripcion" placeholder="*Escribe una descripción de tu negocio" id="descripcion" cols="30" rows="10"></textarea></div>
+						<div class="form-group"><input type="text" class="form-control" name="nombre_negocio" placeholder="*Nombre del negocio" value="" data-validate="required"></div>
+						<div class="form-group"><input type="email" class="form-control" name="email" placeholder="*Correo" value="{{ old('email') }}" data-validate="required|email"></div>
+						<div class="form-group"><textarea class="form-control" name="descripcion" placeholder="Escribe una descripción de tu negocio" id="descripcion" cols="30" rows="10"></textarea></div>
 						<div class="form-group"><input type="text" class="form-control" name="giro" placeholder="*Selecciona un giro" value=""></div>
-						<div class="form-group"><input type="text" class="form-control" name="direccion" placeholder="*Dirección" value="{{ old('direccion') }}"></div>
-						<div class="form-group"><input type="text" class="form-control" name="telefono" placeholder="Teléfono" value="{{ old('telefono') }}"></div>
+						<div class="form-group"><input type="text" class="form-control" name="direccion" placeholder="Dirección" value="{{ old('direccion') }}"></div>
+						<div class="form-group"><input type="text" class="form-control" name="telefono" placeholder="Teléfono" value="{{ old('telefono') }}" data-validate="required"></div>
 						<div class="form-group"><input type="text" class="form-control" name="sitio_web" placeholder="Sitio web" value="{{ old('sitio_web') }}"></div>
 						<div class="form-group"><input type="text" class="form-control" name="coords" placeholder="Coordenadas google Maps" value="{{ old('coords') }}"></div>
 						<div class="form-group">
@@ -52,14 +52,19 @@
 
 						<div class="form-group">
 							{{-- <button type="submit" class="btn btn-primary login">SIGUIENTE</button> --}}
-							<a href="#next" class="btn btn-primary login">SIGUIENTE</a>
+							{{-- <a href="#next" class="btn btn-primary login">SIGUIENTE</a> --}}
 						</div>
 						
 						<h2 class="handlee verde2">Datos de contacto</h2>
 
-						<div class="form-group"><input type="text" class="form-control" name="nombre" placeholder="*Nombre" value="{{ old('nombre') }}"></div>
+						<div class="form-group"><input type="text" class="form-control" name="nombre_responsable" placeholder="*Nombre" value="{{ old('nombre_responsable') }}" data-validate="required"></div>
+						<div class="form-group"><input type="text" class="form-control" name="correo_responsable" placeholder="*Email del responsable del negocio" value="{{ old('correo_responsable') }}" data-validate="required|email"></div>
+						<div class="form-group"><input type="text" class="form-control" name="telefono_responsable" placeholder="*Email del responsable del negocio" value="{{ old('telefono_responsable') }}" data-validate="required"></div>
 						<div class="form-group dashed"></div>
-						
+						<div class="form-group"><button type="submit" class="btn btn-primary login">REGISTRAR</button></div>
+						<div class="sent_mail_alert register text-center">
+							¡Gracias por registrarte!<br>En breve nos comunicaremos con el responsable para verificar datos.
+						</div>
 					</form>
 				</div>
 			</div>

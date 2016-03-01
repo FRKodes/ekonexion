@@ -14,7 +14,7 @@
 			<ul class="nav navbar-nav">
 				<li><a href="{{ url('/') }}">Inicio</a></li>
 				<li><a href="{{ url('nosotros') }}">Nosotros</a></li>
-				<li><a href="{{ url('inscribe-tu-negocio') }}">Inscribe tu negocio</a></li>
+				<li><a href="{{ url('negocios/create') }}">Inscribe tu negocio</a></li>
 				<li><a href="{{ url('aviso-de-privacidad') }}">Aviso de Privacidad</a></li>
 			</ul>
 

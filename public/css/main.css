@@ -126,11 +126,6 @@ body {
   font-size: 1.4em;
   width: 100%;
 }
-.form-group.dashed {
-  border: 1px dashed #808080;
-  height: 200px;
-  background: #fff url("../../images/nube.jpg") no-repeat center center;
-}
 /*ABOUT US*/
 .about-us iframe {
   display: block;
@@ -197,6 +192,14 @@ body {
   width: 100%;
 }
 /*Login*/
+.form-group.error .form-control {
+  border-color: #f00;
+}
+.form-group.dashed {
+  border: 1px dashed #808080;
+  height: 200px;
+  background: #fff url("../../images/nube.jpg") no-repeat center center;
+}
 .form-group span {
   width: 8%;
   display: inline-block;
@@ -220,6 +223,22 @@ body {
 }
 .row.register {
   margin-bottom: 50px;
+}
+.form-horizontal {
+  position: relative;
+}
+.sent_mail_alert {
+  background: #9fd8d2;
+  color: #fff;
+  width: 100%;
+  font-size: 1.2em;
+  padding: 30px 20px;
+  display: none;
+}
+.sent_mail_alert.register {
+  border: 2px solid #000;
+  position: absolute;
+  bottom: 250px;
 }
 footer {
   background-color: #57646d;

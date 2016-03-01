@@ -7,13 +7,11 @@ elixir(function(mix) {
 		.styles([
 			'public/css/bootstrap.min.css',
 			'public/css/icons-font.css',
-			// 'public/css/magic.min.css',
 			'public/css/slick.css',
 			'public/css/main.css'
 		],'public/css/all.min.css', 'public/css')
 		.scripts([
 			'public/js/jquery.js',
-			// 'public/js/jquery-migrate-1.1.0.min.js',
 			'public/js/bootstrap.js',
 			'public/js/slick.js',
 			'public/js/custom.js'
