@@ -9,10 +9,8 @@
 			<figure>{!! HTML::image('images/item-01.jpg', 'logo ekonexion', array('class'=>'')) !!}</figure>
 		</div>
 		<div class="col-sm-6 white description">
-			<h1 class="handlee verde2">Nombre Empresa</h1>
-			<div class="description">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium non asperiores quia labore fugit odio fugiat possimus reprehenderit impedit ab. Officiis, dolore? Ea adipisci id totam, eaque similique accusantium doloremque?
-			</div>
+			<h1 class="handlee verde2">{{ $negocio->nombre_negocio }}</h1>
+			<div class="description">{{ $negocio->descripcion }}</div>
 		</div>
 
 		<div class="row"></div>
@@ -26,18 +24,19 @@
 		@if (Auth::check())
 			<div class="info-container">
 				<div class="col-xs-3 verde handlee">Responsable:</div>
-				<div class="col-xs-9">Lorem ipsum dolor.</div>
+				<div class="col-xs-9">{{ $negocio->nombre_responsable }}</div>
 				<div class="col-xs-3 verde handlee">Dirección:</div>
-				<div class="col-xs-9">Lorem ipsum #4121 Col. Quisquam maiores C.P. 45510</div>
+				<div class="col-xs-9">{{ $negocio->direccion }}</div>
 				<div class="col-xs-3 verde handlee">Tel:</div>
-				<div class="col-xs-9">(33) 1020 3040</div>
-				<div class="col-xs-3 verde handlee">Cel:</div>
-				<div class="col-xs-9">3340302010</div>
-				<div class="col-xs-3 verde handlee">Correo:</div>
-				<div class="col-xs-9"><a class="azul" href="mailto:info@business.com" title="enviar un correo a info@business.com">info@business.com</a></div>
-				<div class="col-xs-3 verde handlee">Web:</div>
-				<div class="col-xs-9"><a class="azul" href="http://business.com" target="_blank" title="Visitar el sitio web">http://business.com</a></div>
+				<div class="col-xs-9">{{ $negocio->telefono }}</div>
+				
+				{{-- <div class="col-xs-3 verde handlee">Cel:</div>
+				<div class="col-xs-9">{{ $negocio->celular }}</div> --}}
 
+				<div class="col-xs-3 verde handlee">Correo:</div>
+				<div class="col-xs-9"><a class="azul" href="mailto:{{ $negocio->correo }}" title="enviar un correo a {{ $negocio->correo }}">{{ $negocio->correo }}</a></div>
+				<div class="col-xs-3 verde handlee">Web:</div>
+				<div class="col-xs-9"><a class="azul" href="http://{{ $negocio->sitio_web }}" target="_blank" title="Visitar el sitio web">{{ $negocio->sitio_web }}</a></div>
 				<div class="col-xs-12 map-container"><figure>{!! HTML::image('images/mapa.jpg', 'map image', array('class'=>'map')) !!}</figure></div>
 			</div>
 		@endif

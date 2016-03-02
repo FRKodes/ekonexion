@@ -17,16 +17,21 @@
 		<h1 class="handlee verde2 text-center">Últimos añadidos</h1>
 
 		<div class="row">
-			<div class="col-sm-3 last-uploaded-item">
-				<div class="item-container">
-					<figure class="photo"><a href="negocio/1"><img src="images/item-01.jpg" alt=""></a></figure>
-					<div class="info">
-						<div class="title"><a class="verde" href="negocio/1">Nombre del negocio</a></div>
-						<div class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
+
+			@foreach ($negocios->slice(0,4) as $negocio)
+				<div class="col-sm-3 last-uploaded-item">
+					<div class="item-container">
+						<figure class="photo"><a href="negocio/{{ $negocio->id }}"><img src="images/item-01.jpg" alt=""></a></figure>
+						<div class="info">
+							<div class="title"><a class="verde" href="negocio/{{ $negocio->id }}">{{ $negocio->nombre_negocio }}</a></div>
+							<div class="description">{{ $negocio->descripcion }}</div>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="col-sm-3 last-uploaded-item">
+
+			@endforeach
+			
+			{{-- <div class="col-sm-3 last-uploaded-item">
 				<div class="item-container">
 					<figure class="photo"><a href="negocio/2"><img src="images/item-02.jpg" alt=""></a></figure>
 					<div class="info">
@@ -52,7 +57,7 @@
 						<div class="description">Aperiam animi voluptas, eaque reprehenderit.</div>
 					</div>
 				</div>
-			</div>
+			</div> --}}
 		</div>
 	</div>
 

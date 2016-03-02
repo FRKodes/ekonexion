@@ -1,5 +1,9 @@
 <?php namespace App\Http\Controllers;
 
+use DB;
+
+use App\Negocio; /*Negocio Model*/
+
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -14,7 +18,11 @@ class PagesController extends Controller {
 	 */
 	public function index()
 	{
-		return View('pages.index');
+		// $negocios = DB::table('negocios')->get();
+		
+		$negocios = Negocio::all();
+
+		return View('pages.index', compact('negocios'));
 	}
 	
 	public function nosotros()
@@ -32,9 +40,11 @@ class PagesController extends Controller {
 		return View('pages.aviso');
 	}
 
-	public function itemDetalle()
+	public function itemDetalle($id)
 	{
-		return View('pages.itemDetalle');
+		$negocio = Negocio::find($id);
+
+		return View('pages.itemDetalle', compact('negocio'));
 	}
 
 
