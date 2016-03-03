@@ -19,6 +19,8 @@
 			</ul>
 
 			<ul class="nav navbar-nav navbar-right">
+				<li><a href="{{ url('/admin/dashboard') }}">Negocios</a></li>
+				<li><a href="{{ url('/admin/users') }}">Usuarios</a></li>
 				@if (Auth::guest())
 					<li><a href="{{ url('/auth/login') }}">Inicia sesión</a></li>
 					<li><a href="{{ url('/auth/register') }}">Regístrate</a></li>
