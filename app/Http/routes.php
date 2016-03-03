@@ -32,9 +32,13 @@ Route::get('home', 'HomeController@index');
 Route::group(['prefix'=>'admin', 'as'], function (){
 	
 	Route::get('dashboard', 'AdminController@index');
+	Route::get('negocios/{id}/edit', 'AdminController@editNegocio');
+	Route::patch('negocios/{negocio}', 'AdminController@updateNegocio');
+	Route::delete('negocios/{negocio}', 'AdminController@deleteNegocio');
+	
 	Route::get('users', 'AdminController@users');
 	Route::get('users/{id}/edit', 'AdminController@editUser');
-
+	Route::patch('users/{user}', 'AdminController@update');
 
 });
 

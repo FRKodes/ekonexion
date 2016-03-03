@@ -17,21 +17,49 @@ class AdminController extends Controller {
 	public function index()
 	{
 		// $negocios = Negocio::all();
-		$negocios = Negocio::paginate(5);
+		$negocios = Negocio::paginate(15);
 
 		return View('admin.index', compact('negocios'));
+
+	}
+
+	public function editNegocio($id){
+		
+		$negocio = Negocio::find($id);
+
+		return View('admin.negocio', compact('negocio'));
+
+	}
+
+	public function updateNegocio(Request $request, Negocio $negocio){
+		
+		$negocio->update($request->except('_method', '_token'));
+
+		return back();
+
 	}
 
 	public function users(){
 		
-		$users = User::all();
+		$users = User::paginate(15);
 
-		return View('admin.users', compact('users'));	
+		return View('admin.users', compact('users'));
 	}
 
 	public function editUser($id){
+
 		$user = User::find($id);
+		
 		return View('admin.user', compact('user'));
+
+	}
+
+	public function update(Request $request, User $user){
+		
+		$user->update($request->except('_method', '_token', 'email'));
+
+		return back();
+
 	}
 
 }

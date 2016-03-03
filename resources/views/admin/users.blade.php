@@ -16,5 +16,7 @@
 				</div>
 			@endforeach
 		</div>
+
+		<div class="pagination-container text-center">{!! $users->render() !!}</div>
 	</div>	
 @stop

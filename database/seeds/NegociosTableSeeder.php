@@ -18,7 +18,7 @@ class NegociosTableSeeder extends Seeder {
 
 		$faker = Faker\factory::create();
 
-		foreach (range(1,5) as $index) {
+		foreach (range(1,75) as $index) {
 			Negocio::create([
 				'nombre_negocio' => $faker->sentence(4),
 				'correo' => $faker->email,

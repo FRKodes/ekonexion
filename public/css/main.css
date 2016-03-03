@@ -16,6 +16,10 @@
 a.btn.btn-link {
   color: #36b0e3;
 }
+.btn.btn-primary.submit {
+  background-color: #459f83;
+  border-color: #459f83;
+}
 img {
   padding: 0;
 }
@@ -281,6 +285,9 @@ footer a {
   }
 }
 @media screen and (min-width: 768px) {
+  .m-bottom-20 {
+    padding-bottom: 20px;
+  }
   .navbar-nav {
     padding-top: 15px;
     z-index: 10;
@@ -337,6 +344,9 @@ footer a {
   }
   .info-container {
     width: 100%;
+  }
+  .form-group .col-sm-2 {
+    text-align: right;
   }
 }
 @media screen and (min-width: 992px) {
