@@ -39,6 +39,10 @@ Route::group(['prefix'=>'admin', 'as'], function (){
 	Route::get('users', 'AdminController@users');
 	Route::get('users/{id}/edit', 'AdminController@editUser');
 	Route::patch('users/{user}', 'AdminController@update');
+	
+	Route::get('categories', 'AdminController@categories');
+	Route::get('categories/{id}/edit', 'AdminController@editCategory');
+	Route::patch('categories/{category}', 'AdminController@updateCategory');
 
 });
 

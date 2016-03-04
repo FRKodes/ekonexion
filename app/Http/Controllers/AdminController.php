@@ -2,6 +2,7 @@
 
 use App\User;
 use App\Negocio;
+use App\Category;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -17,7 +18,7 @@ class AdminController extends Controller {
 	public function index()
 	{
 		// $negocios = Negocio::all();
-		$negocios = Negocio::paginate(15);
+		$negocios = Negocio::paginate(20);
 
 		return View('admin.index', compact('negocios'));
 
@@ -41,7 +42,7 @@ class AdminController extends Controller {
 
 	public function users(){
 		
-		$users = User::paginate(15);
+		$users = User::paginate(20);
 
 		return View('admin.users', compact('users'));
 	}
@@ -58,6 +59,42 @@ class AdminController extends Controller {
 		
 		$user->update($request->except('_method', '_token', 'email'));
 
+		return back();
+
+	}
+
+	public function categories(){
+		
+		$categories = Category::paginate(20);
+		
+		return View('admin.categories', compact('categories'));
+
+	}
+
+	public function editCategory($id){
+		
+		$category = Category::find($id);
+		// $categoriesName = Category::get('name');
+		// $categoriesId = Category::get('id');
+		$categories = Category::all();
+		$categoriesArray = [];
+
+		return View('admin.category', compact('category', 'categories'));
+
+	}
+
+	public function updateCategory(Request $request, $id){
+		
+		$category = Category::find($id);
+		$category->name = $request->name;
+
+		dd($category->parent.' '.$request->parent);
+
+		if ($category->parent != $category->parent) {
+			$category->parent = $request->parent;
+		}
+
+		$category->save();
 		return back();
 
 	}

@@ -1,9 +1,10 @@
 <?php
 
+use App\Role;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 
-class DatabaseSeeder extends Seeder {
+class RolesTableSeeder extends Seeder {
 
 	/**
 	 * Run the database seeds.
@@ -14,11 +15,10 @@ class DatabaseSeeder extends Seeder {
 	{
 		
 		Model::unguard();
-		$this->call('UsersTableSeeder');
-		$this->call('NegociosTableSeeder');
-		$this->call('RolesTableSeeder');
-		$this->call('CategoriesTableSeeder');
 
+		Role::create(['name' => 'administrator']);
+		Role::create(['name' => 'user']);
+		
 	}
 
 }
