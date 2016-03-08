@@ -32,9 +32,27 @@ class AdminController extends Controller {
 
 	}
 
-	public function updateNegocio(Request $request, Negocio $negocio){
+	public function updateNegocio(Request $request, $id){
 		
-		$negocio->update($request->except('_method', '_token'));
+		// $negocio->update($request->except('_method', '_token'));
+
+		$negocio = Negocio::find($id);
+		$negocio->nombre_negocio = $request->nombre_negocio;
+		$negocio->descripcion = $request->descripcion;
+		$negocio->logo = $request->logo;
+		$negocio->correo = $request->email;
+		$negocio->telefono = $request->telefono;
+		$negocio->direccion = $request->direccion;
+		$negocio->sitio_web = $request->sitio_web;
+		$negocio->coords = $request->coords;
+		$negocio->fb = $request->fb;
+		$negocio->tw = $request->tw;
+		$negocio->ig = $request->ig;
+		$negocio->nombre_responsable = $request->nombre_responsable;
+		$negocio->correo_responsable = $request->correo_responsable;
+		$negocio->telefono_responsable = $request->telefono_responsable;
+
+		$negocio->save();
 
 		return back();
 
@@ -55,10 +73,14 @@ class AdminController extends Controller {
 
 	}
 
-	public function update(Request $request, User $user){
+	public function update(Request $request, $id){
 		
-		$user->update($request->except('_method', '_token', 'email'));
-
+		// $user->update($request->except('_method', '_token', 'email'));
+		
+		$user = User::with('roles')->find($id);
+		$user->name = $request->name;
+		$user->save();
+		
 		return back();
 
 	}

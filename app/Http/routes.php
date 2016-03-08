@@ -1,4 +1,6 @@
 <?php
+use App\User;
+use App\Role;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +30,14 @@ Route::resource('negocios', 'NegociosController', [
 
 Route::get('home', 'HomeController@index');
 
+Route::get('roles', function(){
+	
+	// return User::first()->roles()->attach(1);
+
+	return User::with('roles')->first();
+
+});
+
 /*admin stuff goes here*/
 Route::group(['prefix'=>'admin', 'as'], function (){
 	
@@ -45,6 +55,7 @@ Route::group(['prefix'=>'admin', 'as'], function (){
 	Route::patch('categories/{category}', 'AdminController@updateCategory');
 
 });
+
 
 
 Route::controllers([

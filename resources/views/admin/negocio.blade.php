@@ -10,7 +10,7 @@
 			
 			<div class="form-group col-sm-10 col-sm-offset-1">
 				<div class="col-sm-2">{!! Form::label('Nombre_negocio', 'Nombre del negocio') !!}</div>
-				<div class="col-sm-10">{!! Form::input('text', 'Nombre_negocio', $negocio->nombre_negocio, ['class'=>'form-control']) !!}</div>
+				<div class="col-sm-10">{!! Form::input('text', 'nombre_negocio', $negocio->nombre_negocio, ['class'=>'form-control']) !!}</div>
 			</div>
 
 			<div class="form-group col-sm-10 col-sm-offset-1">

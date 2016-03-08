@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('titlePage', 'Editar usuario');
+@section('titlePage', 'Editar usuario')
 
 @section('content')
 	
@@ -18,6 +18,13 @@
 			<div class="form-group m-bottom-20 col-sm-8 col-sm-offset-2">
 				<div class="col-sm-2">{!! Form::label('email', 'Email')  !!}</div>
 				<div class="col-sm-10">{!! Form::input('text', 'email', $user->email, ['class'=>'form-control', 'readonly'])  !!}</div>
+			</div>
+			
+			{{-- {{  dd( $user->roles ) }} --}}
+
+			<div class="form-group m-bottom-20 col-sm-8 col-sm-offset-2">
+				<div class="col-sm-2">{!! Form::label('role', 'Rol de usuario')  !!}</div>
+				<div class="col-sm-10">{!! Form::input('text', 'role', $user->roles->first()->name, ['class'=>'form-control', 'readonly'])  !!}</div>
 			</div>
 
 			<div class="form-group col-sm-8 col-sm-offset-2">
