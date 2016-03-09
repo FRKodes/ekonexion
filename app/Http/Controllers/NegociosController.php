@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use Input;
 use App\Negocio;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -25,7 +26,7 @@ class NegociosController extends Controller {
 	 */
 	public function store(Request $request)
 	{
-		// return $request->all();
+		return $request->all();
 		
 		$negocio = New Negocio;
 		
@@ -43,6 +44,15 @@ class NegociosController extends Controller {
 		$negocio->nombre_responsable = $request->nombre_responsable;
 		$negocio->correo_responsable = $request->correo_responsable;
 		$negocio->telefono_responsable = $request->telefono_responsable;
+
+		if(Input::file()){
+			$image = Input::file('image');
+			$filename  = time() . '.' . $image->getClientOriginalExtension();
+			$path = public_path('images/negocios/' . $filename);
+			Image::make($image->getRealPath())->resize(200, 200)->save($path);
+			
+			$user->image = $filename;
+		}
 
 		$negocio->save();
 

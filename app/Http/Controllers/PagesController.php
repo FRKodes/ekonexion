@@ -20,7 +20,7 @@ class PagesController extends Controller {
 	{
 		// $negocios = DB::table('negocios')->get();
 		
-		$negocios = Negocio::all();
+		$negocios = Negocio::where('status', 1)->get();
 
 		return View('pages.index', compact('negocios'));
 	}

@@ -195,6 +195,7 @@ return [
 		'View'      => 'Illuminate\Support\Facades\View',
 		'HTML'		=> 'Illuminate\Html\HtmlFacade',
 		'Form'		=> 'Illuminate\Html\FormFacade',
+		'Carbon' 	=> 'Carbon\Carbon'
 
 	],
 

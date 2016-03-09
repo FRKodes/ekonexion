@@ -169,6 +169,9 @@
 
     border: 1px solid transparent;
 }
+.rojo {
+  color: rgba(255,0,0,0.6);
+}
 .black {
   color: #000;
 }

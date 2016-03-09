@@ -38,6 +38,13 @@ Route::get('roles', function(){
 
 });
 
+Route::get('testImage', function(){
+	
+	$img = Image::make('images/acercade-photo.jpg')->resize(400, 200);
+	return $img->response('png');
+
+});
+
 /*admin stuff goes here*/
 Route::group(['prefix'=>'admin', 'as'], function (){
 	

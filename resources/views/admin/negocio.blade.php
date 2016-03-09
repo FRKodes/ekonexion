@@ -19,6 +19,13 @@
 			</div>
 
 			<div class="form-group col-sm-10 col-sm-offset-1">
+				<div class="col-sm-2">{!! Form::label('categoria', 'Categoría') !!}</div>
+				<div class="col-sm-10">
+					{!! Form::select('categoria', [], $negocio->categoria, ['class'=>'form-control'])!!}
+				</div>
+			</div>
+			
+			<div class="form-group col-sm-10 col-sm-offset-1">
 				<div class="col-sm-2">{!! Form::label('Email', 'Email') !!}</div>
 				<div class="col-sm-10">{!! Form::input('text', 'correo', $negocio->correo, ['class'=>'form-control']) !!}</div>
 			</div>
@@ -57,6 +64,11 @@
 				<div class="col-sm-2">{!! Form::label('ig', 'Instagram') !!}</div>
 				<div class="col-sm-10">{!! Form::input('text', 'ig', $negocio->ig, ['class'=>'form-control']) !!}</div>
 			</div>
+
+			<div class="form-group col-sm-10 col-sm-offset-1">
+				<div class="col-sm-2">{!! Form::label('status', 'Status') !!}</div>
+				<div class="col-sm-10">{!! Form::select('status', ['0'=>'Inactivo', '1'=>'Activo'], $negocio->status, ['class'=>'form-control']) !!}</div>
+			</div>
 			
 			<h2 class=" col-sm-12 handlee verde2 text-center">Datos del responsable</h2>
 
@@ -74,6 +86,14 @@
 				<div class="col-sm-2">{!! Form::label('telefono_responsable', 'Telefono Responsable') !!}</div>
 				<div class="col-sm-10">{!! Form::input('text', 'telefono_responsable', $negocio->telefono_responsable, ['class'=>'form-control']) !!}</div>
 			</div>
+
+			<div class="form-group col-sm-10 col-sm-offset-1">
+				<div class="col-xs-12 text-right">
+					Registered {!! Carbon::createFromFormat('Y-m-d H:i:s', $negocio->created_at)->diffForHumans(); !!}
+				</div>
+			</div>
+
+
 
 			<div class="form-group col-sm-10 col-sm-offset-1">
 				<a clas="btn btn-danger submit" href="#">Borrar</a>

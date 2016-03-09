@@ -48,6 +48,7 @@ class AdminController extends Controller {
 		$negocio->fb = $request->fb;
 		$negocio->tw = $request->tw;
 		$negocio->ig = $request->ig;
+		$negocio->status = $request->status;
 		$negocio->nombre_responsable = $request->nombre_responsable;
 		$negocio->correo_responsable = $request->correo_responsable;
 		$negocio->telefono_responsable = $request->telefono_responsable;

@@ -61,12 +61,17 @@ $(function(){
 				fb					= form.find( "input[name='fb']" ).val(),
 				tw					= form.find( "input[name='tw']" ).val(),
 				ig					= form.find( "input[name='ig']" ).val(),
+				// imagen				= form.find( "input[name='image']" ).val(),
 				nombre_responsable	= form.find( "input[name='nombre_responsable']" ).val(),
 				correo_responsable	= form.find( "input[name='correo_responsable']" ).val(),
 				telefono_responsable= form.find( "input[name='telefono_responsable']" ).val(),
 				_token   	= form.find( "input[name='_token']" ).val(),
 				action  	= form.attr( "action"),
 				url     	= action;
+
+				// imagen = imagen.replace(' ', '');
+				// console.log('img ' + imagen);
+
 			var posting = $.post( 
 				url, { 	fb: fb, 
 						tw: tw, 
@@ -74,6 +79,7 @@ $(function(){
 						giro: giro, 
 						email: email, 
 						coords: coords, 
+						// imagen: imagen, 
 						telefono: telefono, 
 						direccion: direccion, 
 						sitio_web: sitio_web, 
