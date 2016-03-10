@@ -26,7 +26,16 @@ class NegociosController extends Controller {
 	 */
 	public function store(Request $request)
 	{
-		return $request->all();
+		
+		$this->validate($request, ['nombre_negocio'=>'required', 
+								   'email'=>'required', 
+								   'telefono'=>'required', 
+								   'nombre_responsable'=>'required', 
+								   'correo_responsable'=>'required',
+								   'telefono_responsable'=>'required' 
+								   ]);
+
+		$request->all();
 		
 		$negocio = New Negocio;
 		
@@ -45,15 +54,34 @@ class NegociosController extends Controller {
 		$negocio->correo_responsable = $request->correo_responsable;
 		$negocio->telefono_responsable = $request->telefono_responsable;
 
-		if(Input::file()){
-			$image = Input::file('image');
+		if($request->file('image')){
+			$image = $request->file('image');
 			$filename  = time() . '.' . $image->getClientOriginalExtension();
-			$path = public_path('images/negocios/' . $filename);
-			Image::make($image->getRealPath())->resize(200, 200)->save($path);
-			
-			$user->image = $filename;
+			$image = $image->move(public_path().'/images/negocios/', $filename);
+			$negocio->logo = $filename;
 		}
 
+		if($request->file('images')){
+			$files = $request->file('images');
+			$file_count = count($files);
+			$uploadcount = 0;
+			
+			foreach($files as $file) {
+				$destinationPath = 'uploads';
+				$filename = time(). '-' . $uploadcount . '.' . $file->getClientOriginalExtension();
+				$upload_success = $file->move(public_path().'/images/negocios/', $filename);
+				$uploadcount ++;
+			}
+
+			if($uploadcount != $file_count){
+				
+				return back()->withInput();
+				\Session::flash('images_failed', 'Lo sentimos!<br>Alguna(s) imágen(es) no fueron subidas.');
+
+			}
+		}
+
+		\Session::flash('added_successfuly', 'GRACIAS!<br>El negocio se registró exitosamente. En breve nos pondremos en contacto con el encargado del negocio para verificar los datos.');
 		$negocio->save();
 
 		return back();

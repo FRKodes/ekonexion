@@ -9,8 +9,27 @@
 
 					<p class="text-center">{!! HTML::image('images/logo-ekonexion.svg', 'logo ekonexion', array('width'=>'200', 'class'=>'inner-logo')) !!}</p>
 					<p class="text-center login">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, libero, qui.</p>
+					
+					@if(Session::has('added_successfuly'))
+						<div class="alert alert-success text-center">{!! Session::get('added_successfuly') !!}</div>
+					@endif
+					
+					@if(Session::has('images_failed'))
+						<div class="alert alert-danger text-center">{!! Session::get('images_failed') !!}</div>
+					@endif
 
 					<h1 class="handlee verde2">Registra tu negocio</h1>
+
+					@if ($errors->any())
+						<div class="alert alert-danger">
+							<p class="text-center"><strong >Lo sentimos!</strong> Hubo un problema al registrar el negocio.<br><br></p>
+							<ul>
+								@foreach ($errors->all() as $error)
+									<li>{{ $error }}</li>
+								@endforeach
+							</ul>
+						</div>
+					@endif
 
 					{{-- <form class="form-horizontal" role="form" method="POST" action="{{ url('negocios') }}" id="registerForm"> --}}
 
@@ -18,7 +37,7 @@
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 						<div class="form-group"><input type="text" class="form-control" name="nombre_negocio" placeholder="*Nombre del negocio" value="" data-validate="required"></div>
-						<div class="form-group"><input type="email" class="form-control" name="email" placeholder="*Correo" value="{{ old('email') }}" data-validate="required|email"></div>
+						<div class="form-group"><input type="email" class="form-control" name="email" placeholder="*Email" value="{{ old('email') }}" data-validate="required|email"></div>
 						<div class="form-group"><textarea class="form-control" name="descripcion" placeholder="Escribe una descripción de tu negocio" id="descripcion" cols="30" rows="10"></textarea></div>
 						<div class="form-group"><input type="text" class="form-control" name="giro" placeholder="Selecciona un giro" value=""></div>
 						<div class="form-group"><input type="text" class="form-control" name="direccion" placeholder="Dirección" value="{{ old('direccion') }}"></div>
@@ -40,18 +59,6 @@
 							<input type="text" class="form-control ninety" name="ig" placeholder="Escribe tu nombre de usuario en Instagram" value="{{ old('ig') }}">
 						</div>
 
-
-						@if (count($errors) > 0)
-							<div class="alert alert-danger">
-								<strong>Lo sentimos!</strong> Hubo un problema al registrar el negocio.<br><br>
-								<ul>
-									@foreach ($errors->all() as $error)
-										<li>{{ $error }}</li>
-									@endforeach
-								</ul>
-							</div>
-						@endif
-
 						<div class="form-group">
 							{{-- <button type="submit" class="btn btn-primary login">SIGUIENTE</button> --}}
 							{{-- <a href="#next" class="btn btn-primary login">SIGUIENTE</a> --}}
@@ -64,7 +71,15 @@
 						<div class="form-group"><input type="text" class="form-control" name="telefono_responsable" placeholder="*Teléfono del responsable del negocio" value="{{ old('telefono_responsable') }}" data-validate="required"></div>
 						<div class="form-group dashed"></div>
 						
-						<div class="form-group">{!! Form::file('image', ['class'=>'form-control', 'id'=>'image']) !!}</div>
+						<div class="form-group">
+							{!! Form::label('image', 'Selecciona el logo', []) !!}
+							{!! Form::file('image', ['class'=>'form-control', 'id'=>'image']) !!}
+						</div>
+
+						<div class="form-group">
+							{!! Form::label('images', 'Selecciona algunas imágenes del negocio', []) !!}
+							{!! Form::file('images[]', ['class'=>'form-control', 'id'=>'images', 'multiple'=>true]) !!}
+						</div>
 
 						<div class="form-group"><button type="submit" class="btn btn-primary login">REGISTRAR</button></div>
 						<div class="sent_mail_alert register text-center">

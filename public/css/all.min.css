@@ -190,6 +190,9 @@
 a.btn.btn-link {
   color: #36b0e3;
 }
+.alert.alert-success {
+  margin-top: 5px;
+}
 .btn.btn-primary.submit {
   background-color: #459f83;
   border-color: #459f83;

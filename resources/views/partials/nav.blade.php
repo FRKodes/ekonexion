@@ -19,9 +19,12 @@
 			</ul>
 
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="{{ url('/admin/dashboard') }}">Negocios</a></li>
-				<li><a href="{{ url('/admin/categories') }}">Categorías</a></li>
-				<li><a href="{{ url('/admin/users') }}">Usuarios</a></li>
+				@if(!Auth::guest() && Auth::user()->isAdministrator())
+					<li><a href="{{ url('/admin/dashboard') }}">Negocios</a></li>
+					<li><a href="{{ url('/admin/categories') }}">Categorías</a></li>
+					<li><a href="{{ url('/admin/users') }}">Usuarios</a></li>
+				@endif
+
 				@if (Auth::guest())
 					<li><a href="{{ url('/auth/login') }}">Inicia sesión</a></li>
 					<li><a href="{{ url('/auth/register') }}">Regístrate</a></li>
