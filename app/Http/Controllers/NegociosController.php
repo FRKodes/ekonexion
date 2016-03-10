@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use Input;
+use App\Image;
 use App\Negocio;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -61,7 +62,10 @@ class NegociosController extends Controller {
 			$negocio->logo = $filename;
 		}
 
-		if($request->file('images')){
+		\Session::flash('added_successfuly', 'GRACIAS!<br>El negocio se registró exitosamente. En breve nos pondremos en contacto con el encargado del negocio para verificar los datos.');
+		$negocio->save();
+
+		if($request->file('images')[0]){
 			$files = $request->file('images');
 			$file_count = count($files);
 			$uploadcount = 0;
@@ -70,6 +74,10 @@ class NegociosController extends Controller {
 				$destinationPath = 'uploads';
 				$filename = time(). '-' . $uploadcount . '.' . $file->getClientOriginalExtension();
 				$upload_success = $file->move(public_path().'/images/negocios/', $filename);
+				
+				$last_image = Image::create(['image'=>$filename]);
+				$negocio->images()->attach($last_image);
+
 				$uploadcount ++;
 			}
 
@@ -80,9 +88,6 @@ class NegociosController extends Controller {
 
 			}
 		}
-
-		\Session::flash('added_successfuly', 'GRACIAS!<br>El negocio se registró exitosamente. En breve nos pondremos en contacto con el encargado del negocio para verificar los datos.');
-		$negocio->save();
 
 		return back();
 

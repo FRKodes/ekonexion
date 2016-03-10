@@ -1,10 +1,15 @@
 @extends('app')
 
-@section('titlePage', 'Editar Negocio');
+@section('titlePage', 'Editar Negocio')
 
 @section('content')
 	<div class="container">
+		
 		<h1 class="handlee verde2 text-center">Editar Negocio</h1>
+
+		@if(Session::has('updated_successfuly'))
+			<div class="alert alert-success col-sm-10 col-sm-offset-1">{{ Session::get('updated_successfuly') }} </div>
+		@endif
 
 		{!! Form::open(['method'=>'PATCH', 'id'=>'editNegocio', 'url'=>'admin/negocios/'.$negocio->id]) !!}
 			
@@ -85,6 +90,27 @@
 			<div class="form-group col-sm-10 col-sm-offset-1">
 				<div class="col-sm-2">{!! Form::label('telefono_responsable', 'Telefono Responsable') !!}</div>
 				<div class="col-sm-10">{!! Form::input('text', 'telefono_responsable', $negocio->telefono_responsable, ['class'=>'form-control']) !!}</div>
+			</div>
+
+			<div class="form-group col-sm-10 col-sm-offset-1">
+				<div class="col-sm-2">{!! Form::label('logo', 'Logo') !!}</div>
+				<div class="col-sm-10"><figure>{!! HTML::image('images/negocios/'.$negocio->logo(), 'Logo '.$negocio->nombre_negocio, ['width'=>'150']) !!}</figure></div>
+			</div>
+			
+			@if($negocio->logo() == 'blank.jpg')
+				<div class="form-group col-sm-10 col-sm-offset-1">
+					<div class="col-sm-2"></div>
+					<div class="col-sm-10">{!! Form::file('image', ['class'=>'form-control', 'id'=>'image']) !!}</div>
+				</div>
+			@endif
+
+			<div class="form-group col-sm-10 col-sm-offset-1">
+				<div class="col-sm-2">{!! Form::label('imagenes', 'Imágenes') !!}</div>
+				<div class="col-sm-10">
+					@foreach($negocio->images as $image)
+						{!! HTML::image('images/negocios/'.$image->image, 'Imagen '.$negocio->nombre_negocio, ['width'=>'150']) !!}
+					@endforeach
+				</div>
 			</div>
 
 			<div class="form-group col-sm-10 col-sm-offset-1">

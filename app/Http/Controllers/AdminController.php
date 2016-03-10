@@ -17,9 +17,7 @@ class AdminController extends Controller {
 	 */
 	public function index()
 	{
-		// $negocios = Negocio::all();
-		$negocios = Negocio::paginate(20);
-
+		$negocios = Negocio::orderBy('created_at', 'DESC')->paginate(20);
 		return View('admin.index', compact('negocios'));
 
 	}
@@ -53,7 +51,39 @@ class AdminController extends Controller {
 		$negocio->correo_responsable = $request->correo_responsable;
 		$negocio->telefono_responsable = $request->telefono_responsable;
 
+		if($request->file('image')){
+			$image = $request->file('image');
+			$filename  = time() . '.' . $image->getClientOriginalExtension();
+			$image = $image->move(public_path().'/images/negocios/', $filename);
+			$negocio->logo = $filename;
+		}
+
+		if($request->file('images')[0]){
+			$files = $request->file('images');
+			$file_count = count($files);
+			$uploadcount = 0;
+			
+			foreach($files as $file) {
+				$destinationPath = 'uploads';
+				$filename = time(). '-' . $uploadcount . '.' . $file->getClientOriginalExtension();
+				$upload_success = $file->move(public_path().'/images/negocios/', $filename);
+				
+				$last_image = Image::create(['image'=>$filename]);
+				$negocio->images()->attach($last_image);
+
+				$uploadcount ++;
+			}
+
+			if($uploadcount != $file_count){
+				
+				return back()->withInput();
+				\Session::flash('images_failed', 'Lo sentimos!<br>Alguna(s) imágen(es) no fueron subidas.');
+
+			}
+		}
+
 		$negocio->save();
+		\Session::flash('updated_successfuly', 'Los datos fueron actualizados con éxito.');
 
 		return back();
 
