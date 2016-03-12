@@ -19,6 +19,13 @@ Route::get('/', 'PagesController@index');
 Route::get('nosotros', 'PagesController@nosotros');
 Route::get('aviso-de-privacidad', 'PagesController@aviso');
 Route::get('negocio/{id}', 'PagesController@itemDetalle');
+
+Route::get('search', 'PagesController@search');
+// Route::get('search', function (){
+// 	$query = Request::get('q');
+// 	return $query;
+// });
+
 Route::resource('negocios', 'NegociosController', [
 	'except' => [
 				'index', 'edit', 'update'

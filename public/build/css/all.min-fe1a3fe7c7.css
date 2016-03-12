@@ -481,6 +481,11 @@ footer a {
     font-size: 3em;
     margin: 40px 0;
   }
+  .container.last-uploaded .row {
+    padding-bottom: 20px;
+    overflow: hidden;
+    background-color: #fff;
+  }
   .last-uploaded-item {
     background: transparent;
     background: #fff;
@@ -496,6 +501,7 @@ footer a {
   .last-uploaded-item figure {
     display: block;
     width: 100%;
+    min-height: 169px;
   }
   .last-uploaded-item .info {
     display: block;

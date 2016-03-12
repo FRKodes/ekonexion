@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use App\Image;
 use App\User;
 use App\Negocio;
 use App\Category;
@@ -31,13 +32,10 @@ class AdminController extends Controller {
 	}
 
 	public function updateNegocio(Request $request, $id){
-		
-		// $negocio->update($request->except('_method', '_token'));
 
 		$negocio = Negocio::find($id);
 		$negocio->nombre_negocio = $request->nombre_negocio;
 		$negocio->descripcion = $request->descripcion;
-		$negocio->logo = $request->logo;
 		$negocio->correo = $request->email;
 		$negocio->telefono = $request->telefono;
 		$negocio->direccion = $request->direccion;
@@ -51,11 +49,13 @@ class AdminController extends Controller {
 		$negocio->correo_responsable = $request->correo_responsable;
 		$negocio->telefono_responsable = $request->telefono_responsable;
 
-		if($request->file('image')){
+		if(is_null($request->file('image')) === false ){
+
 			$image = $request->file('image');
 			$filename  = time() . '.' . $image->getClientOriginalExtension();
 			$image = $image->move(public_path().'/images/negocios/', $filename);
 			$negocio->logo = $filename;
+
 		}
 
 		if($request->file('images')[0]){

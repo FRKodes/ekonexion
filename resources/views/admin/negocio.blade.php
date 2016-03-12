@@ -11,7 +11,7 @@
 			<div class="alert alert-success col-sm-10 col-sm-offset-1">{{ Session::get('updated_successfuly') }} </div>
 		@endif
 
-		{!! Form::open(['method'=>'PATCH', 'id'=>'editNegocio', 'url'=>'admin/negocios/'.$negocio->id]) !!}
+		{!! Form::open(['method'=>'PATCH', 'id'=>'editNegocio', 'files'=>true, 'url'=>'admin/negocios/'.$negocio->id]) !!}
 			
 			<div class="form-group col-sm-10 col-sm-offset-1">
 				<div class="col-sm-2">{!! Form::label('Nombre_negocio', 'Nombre del negocio') !!}</div>
@@ -97,12 +97,10 @@
 				<div class="col-sm-10"><figure>{!! HTML::image('images/negocios/'.$negocio->logo(), 'Logo '.$negocio->nombre_negocio, ['width'=>'150']) !!}</figure></div>
 			</div>
 			
-			@if($negocio->logo() == 'blank.jpg')
-				<div class="form-group col-sm-10 col-sm-offset-1">
-					<div class="col-sm-2"></div>
-					<div class="col-sm-10">{!! Form::file('image', ['class'=>'form-control', 'id'=>'image']) !!}</div>
-				</div>
-			@endif
+			<div class="form-group col-sm-10 col-sm-offset-1">
+				<div class="col-sm-2">{!! Form::label('¿Cambiar logo?', '¿Cambiar logo?') !!}</div>
+				<div class="col-sm-10">{!! Form::file('image', ['class'=>'form-control', 'id'=>'image']) !!}</div>
+			</div>
 
 			<div class="form-group col-sm-10 col-sm-offset-1">
 				<div class="col-sm-2">{!! Form::label('imagenes', 'Imágenes') !!}</div>
@@ -112,6 +110,11 @@
 					@endforeach
 				</div>
 			</div>
+
+			<div class="form-group col-sm-10 col-sm-offset-1">
+					<div class="col-sm-2">{!! Form::label('Agregar más imágenes', 'Agregar más imágenes') !!}</div>
+					<div class="col-sm-10">{!! Form::file('images[]', ['class'=>'form-control', 'id'=>'images', 'multiple'=>true]) !!}</div>
+				</div>
 
 			<div class="form-group col-sm-10 col-sm-offset-1">
 				<div class="col-xs-12 text-right">
