@@ -130,6 +130,29 @@ body {
 .last-uploaded.bottom {
   margin-bottom: 40px;
 }
+.search-result-item {
+  margin-bottom: 40px;
+}
+.search-result-item figure {
+  padding: 0;
+  margin: 0;
+}
+.search-result-item figure img {
+  width: 100%;
+  height: auto;
+}
+.search-result-item .item-container {
+  background-color: #fff;
+}
+.search-result-item .item-container .photo {
+  background-color: #808080;
+}
+.search-result-item .item-container .info {
+  padding: 10px;
+}
+.search-result-item .item-container .info .title {
+  padding-bottom: 10px;
+}
 .container-fluid.search {
   background-color: #fff;
   margin-top: 40px;
@@ -149,6 +172,32 @@ body {
   border-color: #9fd8d2;
   font-size: 1.4em;
   width: 100%;
+}
+.search.inner {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+.search.inner .form {
+  background: #e6e7e9;
+  padding-bottom: 30px;
+  padding-top: 20px;
+}
+.search.inner .form .search-title {
+  font-size: 2em;
+}
+.search.inner .form .btn.btn-primary {
+  background: #9fd8d2;
+  border-color: #9fd8d2;
+  font-size: 1.4em;
+  width: 100%;
+}
+.search.inner .banner figure {
+  margin: 0;
+  padding: 0;
+}
+.search.inner .banner figure img {
+  width: 100%;
+  height: auto;
 }
 /*ABOUT US*/
 .about-us iframe {
@@ -338,6 +387,22 @@ footer a {
     overflow: hidden;
     width: 100%;
   }
+  .search-result-item .item-container .photo {
+    background-color: #808080;
+    min-height: 149px;
+    overflow: hidden;
+  }
+  .search-result-item .item-container .info {
+    padding: 10px;
+  }
+  .search-result-item .item-container .info .title {
+    height: 40px;
+    overflow: hidden;
+  }
+  .search-result-item .item-container .info .description {
+    height: 60px;
+    overflow: hidden;
+  }
   .about-us iframe {
     height: auto;
     width: 100%;
@@ -372,6 +437,20 @@ footer a {
   }
   .row.register {
     margin-bottom: 150px;
+  }
+  .search-result-item .item-container .photo {
+    height: 200px;
+  }
+  .search-result-item .item-container .info .title {
+    height: 40px;
+  }
+  .search-result-item .item-container .info .description {
+    height: 60px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .search-result-item .item-container .photo {
+    height: 245px;
   }
 }
 @media screen and (min-width: 1280px) {
