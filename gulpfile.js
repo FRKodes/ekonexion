@@ -8,11 +8,14 @@ elixir(function(mix) {
 			'public/css/bootstrap.min.css',
 			'public/css/icons-font.css',
 			'public/css/slick.css',
+			'public/css/jquery.fancybox.css',
 			'public/css/main.css'
 		],'public/css/all.min.css', 'public/css')
 		.scripts([
 			'public/js/jquery.js',
+			'public/js/jquery.mousewheel-3.0.6.pack.js',
 			'public/js/bootstrap.js',
+			'public/js/jquery.fancybox.pack.js',
 			'public/js/slick.js',
 			'public/js/custom.js'
 		],'public/js/all.min.js', 'public/js')

@@ -27,6 +27,9 @@ a.btn.btn-link
 	border-color verde2
 img
 	padding 0
+.not-images
+	padding-top 30px
+	padding-bottom 30px
 .pagination-container
 	width 100%
 	.pagination>li>a
@@ -96,6 +99,7 @@ body
 		padding 0
 		vertical-align top
 		width 49%
+		background #CAFFDE
 		img
 			height auto
 			width 100%
@@ -194,6 +198,16 @@ body
 	&.description
 		margin-top -20px
 		padding-bottom 30px
+.gallery-item
+	figure
+		padding 0
+		margin 15px 0
+		height 120px
+		overflow hidden
+		img
+			width 100%
+			height auto
+			display block
 .gallery-item:last-of-type
 	padding-bottom 30px
 		
@@ -263,6 +277,9 @@ footer
 	a
 		color verde3
 @media screen and (min-width:480px)
+	.gallery-item
+		figure
+			height 200px
 	.last-uploaded-item
 		.info
 			padding 10px 20px
@@ -315,6 +332,12 @@ footer
 			height 150px
 			overflow hidden
 			width 100%
+			.title
+				height 40px
+				overflow hidden
+			.description
+				height 60px
+				overflow hidden
 	/*SEARCH*/
 	.search-result-item
 		.item-container
@@ -360,6 +383,11 @@ footer
 		margin-top 0
 	.row.register
 		margin-bottom 150px
+	.last-uploaded-item
+		.item-container
+			.photo
+				height 200px
+				overflow hidden
 	/*SEARCH*/
 	.search-result-item
 		.item-container
@@ -371,6 +399,10 @@ footer
 				.description
 					height 60px
 @media screen and (min-width:1200px)
+	.last-uploaded-item
+		.item-container
+			.photo
+				height 245px
 	/*SEARCH*/
 	.search-result-item
 		.item-container

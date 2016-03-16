@@ -20,6 +20,13 @@ class PagesController extends Controller {
 	 */
 	public function index()
 	{	
+		$redirect = \Session::get('redirect');
+		\Session::set('redirect', null);
+
+		if ($redirect) {
+			return redirect($redirect);
+		}
+		
 		$negocios = Negocio::where('status', 1)->get();
 
 		return View('pages.index', compact('negocios'));
@@ -60,9 +67,10 @@ class PagesController extends Controller {
 	 //    })->paginate(20);
 
 		
+		DB::enableQueryLog();
 		
 		$negocios = $query 
-					? Negocio::where('nombre_negocio', 'LIKE', "%$query%")->paginate(20) 
+					? Negocio::where('nombre_negocio', 'LIKE', "%$query%")->where('status', 1)->paginate(20) 
 					: Negocio::paginate(20);
 				
 		// dd(DB::getQueryLog());

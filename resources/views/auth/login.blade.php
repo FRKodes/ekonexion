@@ -1,6 +1,11 @@
 @extends('app')
 
 @section('content')
+
+	@if(Request::input('redirect'))
+		{{ Session::set('redirect', Request::input('redirect')) }}
+	@endif
+
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
@@ -57,7 +62,11 @@
 		</div>
 		
 		<div class="row register">
-			<p class="text-center register">¿Aún no estás registrado? <a class="azul" href="{{ url('/auth/register') }}">Hazlo aquí</a></p>
+			<p class="text-center register">
+				
+				¿Aún no estás registrado? <a class="azul" href="{{  (Request::input('redirect'))? url('/auth/register?redirect='.Request::input('redirect')): url( '/auth/register' ) }}">Hazlo aquí</a>
+
+			</p>
 		</div>
 
 	</div>

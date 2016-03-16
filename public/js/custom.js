@@ -73,3 +73,7 @@ b=RegExp(b,c);return a.val().match(b)?!0:!1};c.checkRegExp=function(a,b){return 
 // 	};
 // 	var $validate = $('#registerForm').validate(formSettings).data('validate');
 // });
+
+$(document).ready(function() {
+	$(".fancybox").fancybox();
+});

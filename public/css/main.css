@@ -29,6 +29,10 @@ a.btn.btn-link {
 img {
   padding: 0;
 }
+.not-images {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
 .pagination-container {
   width: 100%;
 }
@@ -117,6 +121,7 @@ body {
   padding: 0;
   vertical-align: top;
   width: 49%;
+  background: #caffde;
 }
 .last-uploaded-item figure img {
   height: auto;
@@ -244,6 +249,17 @@ body {
   margin-top: -20px;
   padding-bottom: 30px;
 }
+.gallery-item figure {
+  padding: 0;
+  margin: 15px 0;
+  height: 120px;
+  overflow: hidden;
+}
+.gallery-item figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
 .gallery-item:last-of-type {
   padding-bottom: 30px;
 }
@@ -327,6 +343,9 @@ footer a {
   color: #a2b87a;
 }
 @media screen and (min-width: 480px) {
+  .gallery-item figure {
+    height: 200px;
+  }
   .last-uploaded-item .info {
     padding: 10px 20px;
   }
@@ -387,6 +406,14 @@ footer a {
     overflow: hidden;
     width: 100%;
   }
+  .last-uploaded-item .info .title {
+    height: 40px;
+    overflow: hidden;
+  }
+  .last-uploaded-item .info .description {
+    height: 60px;
+    overflow: hidden;
+  }
   .search-result-item .item-container .photo {
     background-color: #808080;
     min-height: 149px;
@@ -438,6 +465,10 @@ footer a {
   .row.register {
     margin-bottom: 150px;
   }
+  .last-uploaded-item .item-container .photo {
+    height: 200px;
+    overflow: hidden;
+  }
   .search-result-item .item-container .photo {
     height: 200px;
   }
@@ -449,6 +480,9 @@ footer a {
   }
 }
 @media screen and (min-width: 1200px) {
+  .last-uploaded-item .item-container .photo {
+    height: 245px;
+  }
   .search-result-item .item-container .photo {
     height: 245px;
   }

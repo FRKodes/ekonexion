@@ -3,6 +3,7 @@
 @section('titlePage', 'Inicio')
 
 @section('content')
+
 	<div class="container main-banner">
 		<div class="row">
 			<div class="item text-center">
