@@ -69,7 +69,13 @@
 					@endif
 				</div>
 				
-				<div class="col-xs-12 map-container"><figure>{!! HTML::image('images/mapa.jpg', 'map image', array('class'=>'map')) !!}</figure></div>
+				<div class="col-xs-12 map-container">
+					<figure>
+						<a href="http://maps.google.com/maps?q={{ $negocio->coords }}" title="Ver mapa completo" target="_blank">
+							{!! HTML::image('http://maps.googleapis.com/maps/api/staticmap?center='.$negocio->coords.'&format=jpeg&maptype=roadmap&markers=color:green%7Clabel:S%7C'.$negocio->coords.'&zoom=16&scale=2&size=1920x250&style=element:labels|visibility:on&style=element:geometry.stroke|visibility:on&key=AIzaSyARGlQkQMTwo75Xq74rr6DrOP-t3IKKxdc', 'map image', array('class'=>'map')) !!}
+						</a>
+					</figure>
+				</div>
 			</div>
 		@endif
 
