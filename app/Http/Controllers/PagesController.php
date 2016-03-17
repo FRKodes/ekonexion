@@ -26,10 +26,17 @@ class PagesController extends Controller {
 		if ($redirect) {
 			return redirect($redirect);
 		}
-		
-		$negocios = Negocio::where('status', 1)->get();
 
-		return View('pages.index', compact('negocios'));
+		//Categories
+		$categorias = Category::all();
+		$selectCategorias = array();
+		foreach($categorias as $category) {
+		    $selectCategorias[$category->id] = $category->name;
+		}
+		
+		$negocios = Negocio::where('status', 1)->orderBy('updated_at', 'desc')->get();
+		$ciudades = DB::table('negocios')->orderBy('ciudad', 'asc')->distinct()->lists('ciudad');
+		return View('pages.index', compact('negocios', 'ciudades', 'selectCategorias'));
 	}
 	
 	public function nosotros()
@@ -71,7 +78,7 @@ class PagesController extends Controller {
 		
 		$negocios = $query 
 					? Negocio::where('nombre_negocio', 'LIKE', "%$query%")->where('status', 1)->paginate(20) 
-					: Negocio::paginate(20);
+					: Negocio::where('status', 1)->paginate(20);
 				
 		// dd(DB::getQueryLog());
 		

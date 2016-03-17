@@ -22,6 +22,8 @@ class CreateNegociosTable extends Migration {
 			$table->string('correo');
 			$table->string('telefono');
 			$table->string('direccion');
+			$table->string('ciudad')->nullable();
+			$table->string('estado')->nullable();
 			$table->string('sitio_web')->nullable();
 			$table->string('coords')->nullable();
 			$table->string('fb')->nullable();

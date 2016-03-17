@@ -3,10 +3,10 @@
 		<p class="search-title verde2 handlee">Buscar:</p>
 		{!! Form::open(['url'=>'search', 'method'=>'GET']) !!}
 			<div class="form-group">
-				{!! Form::select('giro', [], null, ['class'=>'form-control']) !!}
+				{!! Form::select('giro', $selectCategorias, null, ['class'=>'form-control']) !!}
 			</div>
 			<div class="form-group">
-				{!! Form::select('ciudad', [], null, ['class'=>'form-control']) !!}
+				{!! Form::select('ciudad', $ciudades, null, ['class'=>'form-control']) !!}
 			</div>
 			<div class="form-group">{!! Form::input('text', 'q', null, ['class'=>'form-control', 'placeholder'=>'Palabras de búsqueda']) !!}</div>
 			<div class="form-group">{!! Form::submit('Enviar', ['class'=>'btn btn-primary']) !!}</div>

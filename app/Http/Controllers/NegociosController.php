@@ -33,6 +33,7 @@ class NegociosController extends Controller {
 								   'telefono'=>'required', 
 								   'nombre_responsable'=>'required', 
 								   'correo_responsable'=>'required',
+								   'ciudad'=>'required',
 								   'telefono_responsable'=>'required' 
 								   ]);
 
@@ -42,10 +43,10 @@ class NegociosController extends Controller {
 		
 		$negocio->nombre_negocio = $request->nombre_negocio;
 		$negocio->descripcion = $request->descripcion;
-		$negocio->logo = $request->logo;
 		$negocio->correo = $request->email;
 		$negocio->telefono = $request->telefono;
 		$negocio->direccion = $request->direccion;
+		$negocio->ciudad = $request->ciudad;
 		$negocio->sitio_web = $request->sitio_web;
 		$negocio->coords = $request->coords;
 		$negocio->fb = $request->fb;
