@@ -42,6 +42,7 @@
 						<div class="form-group"><input type="text" class="form-control" name="giro" placeholder="Selecciona un giro" value=""></div>
 						<div class="form-group"><input type="text" class="form-control" name="direccion" placeholder="Dirección" value="{{ old('direccion') }}"></div>
 						<div class="form-group"><input type="text" class="form-control" name="ciudad" placeholder="*Ciudad" value="{{ old('ciudad') }}"></div>
+						<div class="form-group"><input type="text" class="form-control" name="estado" placeholder="Estado" value="{{ old('estado') }}"></div>
 						<div class="form-group"><input type="text" class="form-control" name="telefono" placeholder="*Teléfono" value="{{ old('telefono') }}" data-validate="required"></div>
 						<div class="form-group"><input type="text" class="form-control" name="sitio_web" placeholder="Sitio web" value="{{ old('sitio_web') }}"></div>
 						<div class="form-group"><input type="text" class="form-control" name="coords" placeholder="Coordenadas google Maps" value="{{ old('coords') }}"></div>

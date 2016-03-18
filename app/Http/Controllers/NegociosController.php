@@ -47,6 +47,7 @@ class NegociosController extends Controller {
 		$negocio->telefono = $request->telefono;
 		$negocio->direccion = $request->direccion;
 		$negocio->ciudad = $request->ciudad;
+		$negocio->estado = $request->estado;
 		$negocio->sitio_web = $request->sitio_web;
 		$negocio->coords = $request->coords;
 		$negocio->fb = $request->fb;

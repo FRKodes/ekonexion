@@ -46,6 +46,16 @@
 			</div>
 
 			<div class="form-group col-sm-10 col-sm-offset-1">
+				<div class="col-sm-2">{!! Form::label('ciudad', 'Ciudad') !!}</div>
+				<div class="col-sm-10">{!! Form::input('text', 'ciudad', $negocio->ciudad, ['class'=>'form-control']) !!}</div>
+			</div>
+
+			<div class="form-group col-sm-10 col-sm-offset-1">
+				<div class="col-sm-2">{!! Form::label('estado', 'Estado') !!}</div>
+				<div class="col-sm-10">{!! Form::input('text', 'estado', $negocio->estado, ['class'=>'form-control']) !!}</div>
+			</div>
+
+			<div class="form-group col-sm-10 col-sm-offset-1">
 				<div class="col-sm-2">{!! Form::label('sitio_web', 'Sitio web') !!}</div>
 				<div class="col-sm-10">{!! Form::input('text', 'sitio_web', $negocio->sitio_web, ['class'=>'form-control']) !!}</div>
 			</div>
