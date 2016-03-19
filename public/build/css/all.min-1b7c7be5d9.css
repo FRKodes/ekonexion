@@ -461,6 +461,10 @@
 .azul {
   color: #36b0e3;
 }
+img.cien {
+  width: 100%;
+  height: auto;
+}
 a.btn.btn-link {
   color: #36b0e3;
 }
@@ -547,7 +551,6 @@ body {
   width: 100px;
 }
 .main-banner .item {
-  background: #808080 url("../../images/banner.jpg") no-repeat center top;
   color: #fff;
   height: 300px;
   padding: 183px 30px 0 30px;

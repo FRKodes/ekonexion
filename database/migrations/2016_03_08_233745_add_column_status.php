@@ -27,7 +27,7 @@ class AddColumnStatus extends Migration {
 	{
 		Schema::table('negocios', function(Blueprint $table)
 		{
-			$table->dropColumn('choices');
+			$table->dropColumn('status');
 		});
 	}
 

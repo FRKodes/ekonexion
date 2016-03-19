@@ -23,7 +23,7 @@ class NegociosTableSeeder extends Seeder {
 				'nombre_negocio' => $faker->sentence(4),
 				'correo' => $faker->email,
 				'descripcion' => $faker->paragraph(1),
-				// 'giro' => 'lorem ipsum',
+				'categoria' => $faker->numberBetween($min = 1, $max = 13),
 				'direccion' => $faker->address,
 				'telefono' => $faker->phoneNumber,
 				'sitio_web' => $faker->domainName,
@@ -31,6 +31,8 @@ class NegociosTableSeeder extends Seeder {
 				'fb' => $faker->word,
 				'tw' => $faker->word,
 				'ig' => $faker->word,
+				'ciudad' => $faker->randomElement(['Irapuato', 'Salamanca', 'Celaya', 'Guadalajara', 'Zapopan', 'Tlaquepaque', 'Hermosillo', 'Cd. Obregón', 'San Luis Potosí', 'Tijuana', 'Ensenada']),
+				'status' => $faker->randomElement([0,1]),
 				'nombre_responsable' => $faker->name,
 				'correo_responsable' => $faker->email,
 				'telefono_responsable' => $faker->phoneNumber

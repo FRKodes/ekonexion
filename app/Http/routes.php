@@ -59,6 +59,10 @@ Route::group(['prefix'=>'admin', 'middleware'=>['auth', 'admin'], 'as'], functio
 	Route::get('categories/{id}/edit', 'AdminController@editCategory');
 	Route::patch('categories/{category}', 'AdminController@updateCategory');
 
+	Route::get('banners', 'AdminController@banners');
+	Route::get('banners/{id}/edit', 'AdminController@editBanner');
+	Route::patch('banners/{banner}', 'AdminController@updateBanner');
+
 });
 
 

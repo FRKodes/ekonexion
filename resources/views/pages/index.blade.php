@@ -6,10 +6,18 @@
 
 	<div class="container main-banner">
 		<div class="row">
-			<div class="item text-center">
-				<p class="title handlee">Lorem ipsum</p>
-				<p class="description">Dolore quod suscipit minima, error id fugiat. Dicta reiciendis facilis rem officiis suscipit</p>
-			</div>
+
+			@if($banners_top)
+
+				@foreach ($banners_top as $banner_top)	
+					<div class="item text-center" style="background-image: url(images/banners/{{ $banner_top->imagen }})">
+						<p class="title handlee">{{ $banner_top->title }}</p>
+						<p class="description">{{ $banner_top->description }}</p>
+					</div>
+				@endforeach
+				
+			@endif
+
 		</div>
 	</div>
 

@@ -4,6 +4,7 @@ use DB;
 
 use App\Negocio; /*Negocio Model*/
 use App\Category;
+use App\Banner;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -35,8 +36,16 @@ class PagesController extends Controller {
 		}
 		
 		$negocios = Negocio::where('status', 1)->orderBy('updated_at', 'desc')->get();
+		
 		$ciudades = DB::table('negocios')->orderBy('ciudad', 'asc')->distinct()->lists('ciudad');
-		return View('pages.index', compact('negocios', 'ciudades', 'selectCategorias'));
+		$ciudades_array = array();
+		foreach ($ciudades as $ciudad => $value) {
+			$ciudades_array[$value] = $value;
+		}
+
+		$banners_top = Banner::where('place', '=', 'home')->get();
+
+		return View('pages.index', compact('negocios', 'ciudades_array', 'selectCategorias', 'banners_top'));
 	}
 	
 	public function nosotros()
@@ -59,40 +68,34 @@ class PagesController extends Controller {
 		$giro = Request::get('giro');
 		$query = Request::get('q');
 		$ciudad = Request::get('ciudad');
-
-		// $negocios = Negocio::whereNested(function($query, $query_, $giro, $ciudad)
-	 //    {
-		// 	if ($giro)
-		// 		$query_->where('categoria', '=', $giro);
-
-		// 	if ($ciudad) 
-		// 		$query_->where('ciudad', '=', $ciudad);
-			
-		// 	if ($query)
-		// 		$query_->where('nombre_negocio', 'LIKE', "%$query%");
-	        
-	 //    })->paginate(20);
-
 		
 		DB::enableQueryLog();
 		
-		$negocios = $query 
-					? Negocio::where('nombre_negocio', 'LIKE', "%$query%")->where('status', 1)->paginate(20) 
+		$negocios = $ciudad 
+					? Negocio::where('nombre_negocio', 'LIKE', "%$query%")
+					->where('categoria', '=', $giro)
+					->where('ciudad', '=', $ciudad)
+					->where('status', 1)
+					->paginate(20) 
 					: Negocio::where('status', 1)->paginate(20);
 				
 		// dd(DB::getQueryLog());
 		
-		/*
-		 * Categories Stuff
-		 */
+		//Categories Stuff
 		$categorias = Category::all();
 		$selectCategorias = array();
 		foreach($categorias as $category) {
 		    $selectCategorias[$category->id] = $category->name;
 		}
+		
+		$ciudades = DB::table('negocios')->orderBy('ciudad', 'asc')->distinct()->lists('ciudad');
+		$ciudades_array = array();
 
-		return View('pages.search', compact('query', 'giro', 'negocios', 'selectCategorias', 'matchThis'));
-		// return View('pages.search', compact('query', 'negocios', 'selectCategorias'));
+		foreach ($ciudades as $ciudad => $value) {
+			$ciudades_array[$value] = $value;
+		}
+
+		return View('pages.search', compact('negocios', 'selectCategorias', 'ciudades_array'));
 	}
 
 	public function itemDetalle($id)

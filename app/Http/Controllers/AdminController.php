@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use App\Image;
+use App\Banner;
 use App\User;
 use App\Negocio;
 use App\Category;
@@ -150,6 +151,45 @@ class AdminController extends Controller {
 		}
 
 		$category->save();
+		return back();
+
+	}
+
+	public function banners(){
+		
+		$banners = Banner::orderBy('created_at', 'desc')->get();
+
+		return View('admin.banners', compact('banners'));
+
+	}
+
+	public function editBanner($id){
+		
+		$banner = Banner::find($id);
+
+		return View('admin.banner', compact('banner'));
+
+	}
+
+	public function updateBanner(Request $request, $id){
+		
+		$banner = Banner::find($id);
+		$banner->title = $request->title;
+		$banner->link = $request->link;
+		$banner->place = $request->place;
+		$banner->description = $request->description;
+
+		if( $request->file('imagen') ){
+
+			$image = $request->file('imagen');
+			$filename  = time() . '.' . $image->getClientOriginalExtension();
+			$image = $image->move(public_path().'/images/banners/', $filename);
+			$banner->imagen = $filename;
+
+		}
+
+		$banner->save();
+
 		return back();
 
 	}

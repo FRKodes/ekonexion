@@ -6,7 +6,7 @@
 				{!! Form::select('giro', $selectCategorias, null, ['class'=>'form-control']) !!}
 			</div>
 			<div class="form-group">
-				{!! Form::select('ciudad', $ciudades, null, ['class'=>'form-control']) !!}
+				{!! Form::select('ciudad', $ciudades_array, null, ['class'=>'form-control']) !!}
 			</div>
 			<div class="form-group">{!! Form::input('text', 'q', null, ['class'=>'form-control', 'placeholder'=>'Palabras de búsqueda']) !!}</div>
 			<div class="form-group">{!! Form::submit('Enviar', ['class'=>'btn btn-primary']) !!}</div>
