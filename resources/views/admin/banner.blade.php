@@ -1,4 +1,4 @@
-@extends('app')
+@extends('admin')
 
 @section('titlePage', 'Editar Banner')
 
@@ -29,7 +29,7 @@
 			<div class="form-group m-bottom-20 col-sm-8 col-sm-offset-2">
 				<div class="col-sm-2">{!! Form::label('lugar', 'Lugar')  !!}</div>
 				<div class="col-sm-10">
-					{!! Form::select('place', ['home'=>'home', 'search'=>'search', 'footer'=>'footer'], $banner->place, ['class'=>'form-control'])  !!}
+					{!! Form::select('place', ['home'=>'home', 'inner'=>'inner', 'footer'=>'footer'], $banner->place, ['class'=>'form-control'])  !!}
 				</div>
 			</div>
 

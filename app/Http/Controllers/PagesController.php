@@ -43,14 +43,15 @@ class PagesController extends Controller {
 			$ciudades_array[$value] = $value;
 		}
 
-		$banners_top = Banner::where('place', '=', 'home')->get();
+		$banners_top = Banner::where('place', '=', 'home')->where('status', '=', 1)->get();
 
 		return View('pages.index', compact('negocios', 'ciudades_array', 'selectCategorias', 'banners_top'));
 	}
 	
 	public function nosotros()
 	{
-		return View('pages.nosotros');
+		$banners_top = Banner::where('place', '=', 'home')->where('status', '=', 1)->get();
+		return View('pages.nosotros', compact('banners_top'));
 	}
 	
 	public function inscribe()
@@ -95,7 +96,9 @@ class PagesController extends Controller {
 			$ciudades_array[$value] = $value;
 		}
 
-		return View('pages.search', compact('negocios', 'selectCategorias', 'ciudades_array'));
+		$banners_inner = Banner::where('place', '=', 'inner')->where('status', '=', 1)->get();
+
+		return View('pages.search', compact('negocios', 'selectCategorias', 'ciudades_array', 'banners_inner'));
 	}
 
 	public function itemDetalle($id)

@@ -165,6 +165,13 @@ b=RegExp(b,c);return a.val().match(b)?!0:!1};c.checkRegExp=function(a,b){return 
 // });
 
 $(document).ready(function() {
+	
 	$(".fancybox").fancybox();
+	
+	$('.home-slider').slick({
+		'autoplay': true,
+		'dots': true
+	});
+
 });
 //# sourceMappingURL=all.min.js.map

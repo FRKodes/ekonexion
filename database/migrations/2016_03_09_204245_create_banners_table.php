@@ -20,6 +20,7 @@ class CreateBannersTable extends Migration {
 			$table->string('link')->nullable();
 			$table->enum('place', ['home', 'inner', 'footer'])->default('home');
 			$table->string('imagen')->nullable();
+			$table->enum('status', [0,1])->default(1);
 			$table->timestamps();
 		});
 	}

@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('titlePage', 'Resultados de búsqueda para ')
+@section('titlePage', 'Resultados de búsqueda para '.Request::get('q'))
 
 @section('content')
 	
@@ -30,8 +30,8 @@
 			<div class="pagination-container text-center">{!! $negocios->render() !!}</div>
 
 		@else
-			<div class="row">
-				<p>Sorry banda</p>
+			<div class="row not-found">
+				<h2 class="handlee verde2 text-center">Lo sentimos, no encontramos negocios relacionados con tu criterio de búsqueda</h2>
 			</div>
 		@endif
 	

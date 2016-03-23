@@ -1,3 +1,20 @@
+<div class="container footer-banner">
+	<div class="row">
+		@if($banners_footer)
+			<div class="home-slider">
+				@foreach ($banners_footer as $banner_footer)
+					<div class="item text-center" style="background-image: url(images/banners/{{ $banner_footer->imagen }})">
+						<a href="{{ $banner_footer->link }}" class="blanco" target="_blank">
+							<p class="title handlee">{{ $banner_footer->title }}</p>
+							<p class="description">{{ $banner_footer->description }}</p>
+						</a>
+					</div>
+				@endforeach
+			</div>
+		@endif
+	</div>
+</div>
+
 <footer>
 	<div class="container">
 		<div class="col-sm-4">

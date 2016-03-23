@@ -5,20 +5,7 @@
 @section('content')
 
 	<div class="container main-banner">
-		<div class="row">
-
-			@if($banners_top)
-
-				@foreach ($banners_top as $banner_top)	
-					<div class="item text-center" style="background-image: url(images/banners/{{ $banner_top->imagen }})">
-						<p class="title handlee">{{ $banner_top->title }}</p>
-						<p class="description">{{ $banner_top->description }}</p>
-					</div>
-				@endforeach
-				
-			@endif
-
-		</div>
+		<div class="row">@include('partials.banners-top')</div>
 	</div>
 
 	<div class="container last-uploaded bottom">

@@ -16,6 +16,16 @@
 .azul {
   color: #36b0e3;
 }
+.blanco {
+  color: #fff;
+}
+.blanco:hover {
+  color: #fff;
+}
+.not-found {
+  padding-top: 50px;
+  padding-bottom: 100px;
+}
 img.cien {
   width: 100%;
   height: auto;
@@ -105,13 +115,63 @@ body {
   margin-top: -40px;
   width: 100px;
 }
-.main-banner .item {
+.main-banner .item,
+.footer-banner .item {
+  background-position: center top;
+  background-repeat: no-repeat;
   color: #fff;
   height: 300px;
   padding: 183px 30px 0 30px;
 }
-.main-banner .item .title {
+.main-banner .item .title,
+.footer-banner .item .title {
   font-size: 2.2em;
+}
+.main-banner .slick-prev,
+.footer-banner .slick-prev,
+.main-banner .slick-next,
+.footer-banner .slick-next {
+  display: none !important;
+}
+.main-banner .slick-dots,
+.footer-banner .slick-dots {
+  text-align: center;
+}
+.main-banner .slick-dots li,
+.footer-banner .slick-dots li {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  overflow: hidden;
+  border: 1px solid #459f83;
+  border-radius: 50%;
+  margin: 10px 5px;
+}
+.main-banner .slick-dots li.slick-active,
+.footer-banner .slick-dots li.slick-active {
+  background-color: #459f83;
+}
+.main-banner .slick-dots li button,
+.footer-banner .slick-dots li button {
+  background: transparent;
+  border: none;
+  color: transparent;
+}
+.banner-inner .item {
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 300px;
+  overflow: hidden;
+}
+.banner-inner .item a {
+  position: relative;
+  top: 200px;
+}
+.banner-inner .slick-prev,
+.banner-inner .slick-next,
+.banner-inner .slick-dots {
+  display: none !important;
 }
 .last-uploaded-item {
   background: #fff;

@@ -1,6 +1,7 @@
 <?php namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use \App\Banner;
 
 class AppServiceProvider extends ServiceProvider {
 
@@ -11,7 +12,8 @@ class AppServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		//
+		$banners_footer = Banner::where('place', '=', 'footer')->where('status', '=', 1)->get();
+		view()->share('banners_footer', $banners_footer);
 	}
 
 	/**

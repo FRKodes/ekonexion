@@ -18,6 +18,13 @@ rojo = red
 	color verde
 .azul
 	color azul
+.blanco
+	color white
+	&:hover
+		color white
+.not-found
+	padding-top 50px
+	padding-bottom 100px
 img.cien
 	width 100%
 	height auto
@@ -85,13 +92,48 @@ body
 		margin-top -40px
 		width 100px
 .main-banner
+.footer-banner
 	.item
-		// background gray url(../../images/banner.jpg) no-repeat center top
+		background-position center top
+		background-repeat no-repeat
 		color white
 		height 300px
 		padding 183px 30px 0 30px
 		.title
 			font-size 2.2em
+	.slick-prev
+	.slick-next
+		display none !important
+	.slick-dots
+		text-align center
+		li
+			display inline-block
+			width 20px
+			height 20px
+			overflow hidden
+			border 1px solid verde2
+			border-radius 50%
+			margin 10px 5px
+			&.slick-active
+				background-color verde2
+			button
+				background transparent
+				border none
+				color transparent
+.banner-inner
+	.item
+		background-position center top
+		background-repeat no-repeat
+		background-size cover
+		height 300px
+		overflow hidden
+		a
+			position relative
+			top 200px
+	.slick-prev
+	.slick-next
+	.slick-dots
+		display none !important
 .last-uploaded-item
 	background white
 	margin 20px 0

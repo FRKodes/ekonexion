@@ -22,6 +22,7 @@
 				@if(!Auth::guest() && Auth::user()->isAdministrator())
 					<li><a href="{{ url('/admin/dashboard') }}">Negocios</a></li>
 					<li><a href="{{ url('/admin/categories') }}">Categorías</a></li>
+					<li><a href="{{ url('/admin/banners') }}">Banners</a></li>
 					<li><a href="{{ url('/admin/users') }}">Usuarios</a></li>
 				@endif
 
