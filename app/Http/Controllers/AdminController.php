@@ -5,6 +5,7 @@ use App\Banner;
 use App\User;
 use App\Negocio;
 use App\Category;
+use App\Evento;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -163,6 +164,34 @@ class AdminController extends Controller {
 
 	}
 
+	public function createBanner(){
+		return View('admin.create-banner');
+	}
+
+	public function storeBanner(Request $request){
+		$this->validate($request, ['title'=>'required']);
+		$request->all();
+		$banner = New Banner;
+		
+		$banner->title = $request->title;
+		$banner->description = $request->description;
+		$banner->link = $request->link;
+		$banner->place = $request->place;
+		$banner->status = $request->status;
+
+		if($request->file('image')){
+			$image = $request->file('image');
+			$filename  = time() . '.' . $image->getClientOriginalExtension();
+			$image = $image->move(public_path().'/images/banners/', $filename);
+			$banner->imagen = $filename;
+		}
+
+		\Session::flash('added_successfuly', 'El banner se agregó correctamente.');
+		$banner->save();
+
+		return back();
+	}
+
 	public function editBanner($id){
 		
 		$banner = Banner::find($id);
@@ -177,6 +206,7 @@ class AdminController extends Controller {
 		$banner->title = $request->title;
 		$banner->link = $request->link;
 		$banner->place = $request->place;
+		$banner->status = $request->status;
 		$banner->description = $request->description;
 
 		if( $request->file('imagen') ){
@@ -189,6 +219,79 @@ class AdminController extends Controller {
 		}
 
 		$banner->save();
+
+		return back();
+
+	}
+
+	public function eventos(){
+		
+		$eventos = Evento::orderBy('created_at', 'desc')->paginate(20);
+
+		return View('admin.eventos', compact('eventos'));
+
+	}
+
+	public function storeEvento(Request $request)
+	{
+		
+		$this->validate($request, ['title'=>'required']);
+
+		$request->all();
+		
+		$evento = New Evento;
+		
+		$evento->title = $request->title;
+		$evento->descripction = $request->descripction;
+		$evento->link = $request->link;
+		$evento->date = $request->date;
+		$evento->status = $request->status;
+
+		if($request->file('image')){
+			$image = $request->file('image');
+			$filename  = time() . '.' . $image->getClientOriginalExtension();
+			$image = $image->move(public_path().'/images/eventos/', $filename);
+			$evento->image = $filename;
+		}
+
+		\Session::flash('added_successfuly', 'El evento se agregó exitosamente.');
+		$evento->save();
+
+		return back();
+
+	}
+
+	public function createEvento(){
+		return View('eventos.create');
+	}
+
+	public function editEvento($id){
+		
+		$evento = Evento::find($id);
+		return View('admin.evento', compact('evento'));
+
+	}
+
+
+	public function updateEvento(Request $request, $id){
+		
+		$evento = Evento::find($id);
+		$evento->title = $request->title;
+		$evento->descripction = $request->descripction;
+		$evento->link = $request->link;
+		$evento->status = $request->status;
+		$evento->date = $request->date;
+
+		if( $request->file('image') ){
+
+			$image = $request->file('image');
+			$filename  = time() . '.' . $image->getClientOriginalExtension();
+			$image = $image->move(public_path().'/images/eventos/', $filename);
+			$evento->image = $filename;
+
+		}
+
+		$evento->save();
 
 		return back();
 

@@ -732,6 +732,19 @@ body {
   padding-bottom: 40px;
   padding-top: 40px;
 }
+/*Eventos*/
+.event-item {
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 200px;
+  margin-bottom: 40px;
+  margin-top: 20px;
+}
+.event-item h2.title {
+  padding-top: 100px;
+  position: relative;
+}
 /*Detail*/
 .container.detail {
   padding-top: 40px;

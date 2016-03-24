@@ -34,6 +34,13 @@
 			</div>
 
 			<div class="form-group m-bottom-20 col-sm-8 col-sm-offset-2">
+				<div class="col-sm-2">{!! Form::label('status', 'Status')  !!}</div>
+				<div class="col-sm-10">
+					{!! Form::select('status', [0 =>'Inactivo', 1 =>'Activo'], $banner->status, ['class'=>'form-control'])  !!}
+				</div>
+			</div>
+
+			<div class="form-group m-bottom-20 col-sm-8 col-sm-offset-2">
 				<div class="col-sm-2">{!! Form::label('imagen', 'Imagen')  !!}</div>
 				<div class="col-sm-10">{!! HTML::image('images/banners/'.$banner->imagen, $banner->title, ['class'=>'cien'], null) !!}</div>
 			</div>

@@ -4,6 +4,7 @@ Route::get('nosotros', 'PagesController@nosotros');
 Route::get('aviso-de-privacidad', 'PagesController@aviso');
 Route::get('negocio/{id}', 'PagesController@itemDetalle');
 Route::get('search', 'PagesController@search');
+Route::get('eventos', 'PagesController@eventos');
 Route::resource('negocios', 'NegociosController', [
 	'except' => ['index', 'edit', 'update']
 	]);
@@ -31,8 +32,16 @@ Route::group(['prefix'=>'admin', 'middleware'=>['auth', 'admin'], 'as'], functio
 	Route::patch('categories/{category}', 'AdminController@updateCategory');
 
 	Route::get('banners', 'AdminController@banners');
+	Route::get('banners/create', 'AdminController@createBanner');
+	Route::post('banners', 'AdminController@storeBanner');
 	Route::get('banners/{id}/edit', 'AdminController@editBanner');
 	Route::patch('banners/{banner}', 'AdminController@updateBanner');
+
+	Route::get('eventos', 'AdminController@eventos');
+	Route::get('eventos/create', 'AdminController@createEvento');
+	Route::post('eventos', 'AdminController@storeEvento');
+	Route::get('eventos/{id}/edit', 'AdminController@editEvento');
+	Route::patch('eventos/{evento}', 'AdminController@updateEvento');
 
 });
 

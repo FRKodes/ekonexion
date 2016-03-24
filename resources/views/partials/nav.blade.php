@@ -14,18 +14,12 @@
 			<ul class="nav navbar-nav">
 				<li><a href="{{ url('/') }}">Inicio</a></li>
 				<li><a href="{{ url('nosotros') }}">Nosotros</a></li>
+				<li><a href="{{ url('eventos') }}">Eventos</a></li>
 				<li><a href="{{ url('negocios/create') }}">Inscribe tu negocio</a></li>
 				<li><a href="{{ url('aviso-de-privacidad') }}">Aviso de Privacidad</a></li>
 			</ul>
 
 			<ul class="nav navbar-nav navbar-right">
-				@if(!Auth::guest() && Auth::user()->isAdministrator())
-					<li><a href="{{ url('/admin/dashboard') }}">Negocios</a></li>
-					<li><a href="{{ url('/admin/categories') }}">Categorías</a></li>
-					<li><a href="{{ url('/admin/banners') }}">Banners</a></li>
-					<li><a href="{{ url('/admin/users') }}">Usuarios</a></li>
-				@endif
-
 				@if (Auth::guest())
 					<li><a href="{{ url('/auth/login') }}">Inicia sesión</a></li>
 					<li><a href="{{ url('/auth/register') }}">Regístrate</a></li>
@@ -33,6 +27,13 @@
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
 						<ul class="dropdown-menu" role="menu">
+							@if(!Auth::guest() && Auth::user()->isAdministrator())
+								<li><a href="{{ url('/admin/users') }}">Usuarios</a></li>
+								<li><a href="{{ url('/admin/dashboard') }}">Negocios</a></li>
+								<li><a href="{{ url('/admin/eventos') }}">Eventos</a></li>
+								<li><a href="{{ url('/admin/banners') }}">Banners</a></li>
+								<li><a href="{{ url('/admin/categories') }}">Categorías</a></li>
+							@endif
 							<li><a href="{{ url('/auth/logout') }}">Cerrar sesión</a></li>
 						</ul>
 					</li>

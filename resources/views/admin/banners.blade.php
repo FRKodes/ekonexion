@@ -7,6 +7,14 @@
 		
 		<h1 class="handlee text-center verde2">Banners</h1>
 
+		<div class="row">
+			<div class="col-xs-3">
+				<a href="{{ url('/admin/banners/create')}}" class="btn btn-primary login">Agregar Banner</a>
+			</div>
+		</div>
+
+		<div class="row"><br></div>
+
 		@if(count($banners) > 0)
 			
 			<div class="list-group col-md-10 col-md-offset-1">
