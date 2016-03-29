@@ -29,7 +29,15 @@ class AdminController extends Controller {
 		
 		$negocio = Negocio::find($id);
 
-		return View('admin.negocio', compact('negocio'));
+		$cats = [];
+		$categories = [];
+		$cats = Category::get(['id','name']);
+
+		foreach ($cats as $cat) {
+			$categories[$cat->id] = $cat->name;
+		}
+
+		return View('admin.negocio', compact('negocio', 'categories'));
 
 	}
 
@@ -38,6 +46,7 @@ class AdminController extends Controller {
 		$negocio = Negocio::find($id);
 		$negocio->nombre_negocio = $request->nombre_negocio;
 		$negocio->descripcion = $request->descripcion;
+		$negocio->categoria = $request->categoria;
 		$negocio->correo = $request->email;
 		$negocio->telefono = $request->telefono;
 		$negocio->direccion = $request->direccion;
@@ -93,6 +102,12 @@ class AdminController extends Controller {
 
 	}
 
+	public function deleteNegocio($id){
+		$negocio = Negocio::find($id);
+		$negocio->delete();
+		return back();
+	}
+
 	public function users(){
 		
 		$users = User::paginate(20);
@@ -110,14 +125,17 @@ class AdminController extends Controller {
 
 	public function update(Request $request, $id){
 		
-		// $user->update($request->except('_method', '_token', 'email'));
-		
 		$user = User::with('roles')->find($id);
 		$user->name = $request->name;
 		$user->save();
-		
 		return back();
 
+	}
+
+	public function deleteUser($id){
+		$user = User::find($id);
+		$user->delete();
+		return back();
 	}
 
 	public function categories(){
@@ -128,11 +146,33 @@ class AdminController extends Controller {
 
 	}
 
+	public function createCategory(){
+		
+		return View('admin.create-category');
+
+	}
+
+	public function storeCategory(Request $request){
+		
+		$this->validate($request, ['name'=>'required']);
+		$request->all();
+		$category = New Category;
+		$category->name = $request->name;
+		$category->save();
+		\Session::flash('added_successfuly', 'La categoría se agregó correctamente.');
+		return back();
+
+	}
+
+	public function deleteCategory($id){
+		$category = Category::find($id);
+		$category->delete();
+		return back();
+	}
+
 	public function editCategory($id){
 		
 		$category = Category::find($id);
-		// $categoriesName = Category::get('name');
-		// $categoriesId = Category::get('id');
 		$categories = Category::all();
 		$categoriesArray = [];
 
@@ -224,6 +264,12 @@ class AdminController extends Controller {
 
 	}
 
+	public function deleteBanner($id){
+		$banner = Banner::find($id);
+		$banner->delete();
+		return back();
+	}
+
 	public function eventos(){
 		
 		$eventos = Evento::orderBy('created_at', 'desc')->paginate(20);
@@ -295,6 +341,12 @@ class AdminController extends Controller {
 
 		return back();
 
+	}
+
+	public function deleteEvento($id){
+		$evento = Evento::find($id);
+		$evento->delete();
+		return back();
 	}
 
 }

@@ -3,6 +3,7 @@
 use Input;
 use App\Image;
 use App\Negocio;
+use App\Category;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -17,7 +18,15 @@ class NegociosController extends Controller {
 	 */
 	public function create()
 	{
-		return View('negocios.create');
+		$cats = [];
+		$categories = [];
+		$cats = Category::get(['id','name']);
+
+		foreach ($cats as $cat) {
+			$categories[$cat->id] = $cat->name;
+		}
+
+		return View('negocios.create', compact('categories'));
 	}
 
 	/**
@@ -43,6 +52,7 @@ class NegociosController extends Controller {
 		
 		$negocio->nombre_negocio = $request->nombre_negocio;
 		$negocio->descripcion = $request->descripcion;
+		$negocio->categoria = $request->categoria;
 		$negocio->correo = $request->email;
 		$negocio->telefono = $request->telefono;
 		$negocio->direccion = $request->direccion;

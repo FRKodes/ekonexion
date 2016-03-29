@@ -106,7 +106,9 @@ class PagesController extends Controller {
 	{
 		$negocio = Negocio::find($id);
 
-		return View('pages.itemDetalle', compact('negocio'));
+		$related_ones = Negocio::where('categoria', '=', $negocio->categoria)->where('ciudad', '=', $negocio->ciudad)->where('id', '<>', $negocio->id)->get();
+
+		return View('pages.itemDetalle', compact('negocio', 'related_ones'));
 	}
 
 	public function eventos(){

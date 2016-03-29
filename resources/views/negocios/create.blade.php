@@ -31,15 +31,13 @@
 						</div>
 					@endif
 
-					{{-- <form class="form-horizontal" role="form" method="POST" action="{{ url('negocios') }}" id="registerForm"> --}}
-
 					{!! Form::open(['class'=>'form-horizontal', 'role'=>'form', 'url'=>'negocios', 'id'=>'registerForm', 'files'=>true]) !!}
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 						<div class="form-group"><input type="text" class="form-control" name="nombre_negocio" placeholder="*Nombre del negocio" value="" data-validate="required"></div>
 						<div class="form-group"><input type="email" class="form-control" name="email" placeholder="*Email" value="{{ old('email') }}" data-validate="required|email"></div>
 						<div class="form-group"><textarea class="form-control" name="descripcion" placeholder="Escribe una descripción de tu negocio" id="descripcion" cols="30" rows="10"></textarea></div>
-						<div class="form-group"><input type="text" class="form-control" name="giro" placeholder="Selecciona un giro" value=""></div>
+						<div class="form-group">{!! Form::select('categoria', $categories, null, ['class'=>'form-control']) !!}</div>
 						<div class="form-group"><input type="text" class="form-control" name="direccion" placeholder="Dirección" value="{{ old('direccion') }}"></div>
 						<div class="form-group"><input type="text" class="form-control" name="ciudad" placeholder="*Ciudad" value="{{ old('ciudad') }}"></div>
 						<div class="form-group"><input type="text" class="form-control" name="estado" placeholder="Estado" value="{{ old('estado') }}"></div>

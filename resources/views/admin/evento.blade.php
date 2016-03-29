@@ -15,11 +15,11 @@
 					<div class="alert alert-danger text-center">{!! Session::get('images_failed') !!}</div>
 				@endif
 
-				<h1 class="handlee verde2">Editar un banner</h1>
+				<h1 class="handlee verde2 text-center">Editar evento</h1>
 
 				@if ($errors->any())
 					<div class="alert alert-danger">
-						<p class="text-center">Hubo un problema al editar el banner.<br><br></p>
+						<p class="text-center">Hubo un problema al editar el evento.<br><br></p>
 						<ul>
 							@foreach ($errors->all() as $error)
 								<li>{{ $error }}</li>

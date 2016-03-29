@@ -26,22 +26,28 @@ Route::group(['prefix'=>'admin', 'middleware'=>['auth', 'admin'], 'as'], functio
 	Route::get('users', 'AdminController@users');
 	Route::get('users/{id}/edit', 'AdminController@editUser');
 	Route::patch('users/{user}', 'AdminController@update');
+	Route::delete('users/{user}', 'AdminController@deleteUser');
 	
 	Route::get('categories', 'AdminController@categories');
+	Route::get('categories/create', 'AdminController@createCategory');
+	Route::post('categories', 'AdminController@storeCategory');
 	Route::get('categories/{id}/edit', 'AdminController@editCategory');
 	Route::patch('categories/{category}', 'AdminController@updateCategory');
+	Route::delete('categories/{category}', 'AdminController@deleteCategory');
 
 	Route::get('banners', 'AdminController@banners');
 	Route::get('banners/create', 'AdminController@createBanner');
 	Route::post('banners', 'AdminController@storeBanner');
 	Route::get('banners/{id}/edit', 'AdminController@editBanner');
 	Route::patch('banners/{banner}', 'AdminController@updateBanner');
+	Route::delete('banners/{banner}', 'AdminController@deleteBanner');
 
 	Route::get('eventos', 'AdminController@eventos');
 	Route::get('eventos/create', 'AdminController@createEvento');
 	Route::post('eventos', 'AdminController@storeEvento');
 	Route::get('eventos/{id}/edit', 'AdminController@editEvento');
 	Route::patch('eventos/{evento}', 'AdminController@updateEvento');
+	Route::delete('eventos/{evento}', 'AdminController@deleteEvento');
 
 });
 

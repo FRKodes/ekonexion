@@ -25,9 +25,7 @@
 
 			<div class="form-group col-sm-10 col-sm-offset-1">
 				<div class="col-sm-2">{!! Form::label('categoria', 'Categoría') !!}</div>
-				<div class="col-sm-10">
-					{!! Form::select('categoria', [], $negocio->categoria, ['class'=>'form-control'])!!}
-				</div>
+				<div class="col-sm-10">{!! Form::select('categoria', $categories, $negocio->categoria, ['class'=>'form-control'])!!}</div>
 			</div>
 			
 			<div class="form-group col-sm-10 col-sm-offset-1">
