@@ -83,7 +83,13 @@ $(document).ready(function() {
 		'dots': true
 	});
 
+  $('img').error(function(){
+    $(this).attr('src', '/images/blank.jpg');
+  });
+
 });
+
+
 
 (function() {
  
