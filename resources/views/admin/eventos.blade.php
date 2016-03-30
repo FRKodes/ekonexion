@@ -14,7 +14,7 @@
 
 		<div class="row"><br></div>
 
-		@if(count($eventos>0))
+		@if(count($eventos)>0)
 
 			<div class="list-group col-md-10 col-md-offset-1">
 				<div class="list-group-item container-fluid">
@@ -38,6 +38,6 @@
 		@endif
 
 		<div class="pagination-container text-center">{!! $eventos->render() !!}</div>
-		
+
 	</div>	
 @stop
