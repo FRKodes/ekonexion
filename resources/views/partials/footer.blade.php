@@ -1,6 +1,6 @@
 <div class="container footer-banner">
 	<div class="row">
-		@if($banners_footer)
+		@if(count($banners_footer)>0)
 			<div class="home-slider">
 				@foreach ($banners_footer as $banner_footer)
 					<div class="item text-center" style="background-image: url(/images/banners/{{ $banner_footer->imagen }})">
