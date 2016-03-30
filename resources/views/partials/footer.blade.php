@@ -1,6 +1,6 @@
 <div class="container footer-banner">
 	<div class="row">
-		@if($banners_footer)
+		{{-- @if($banners_footer)
 			<div class="home-slider">
 				@foreach ($banners_footer as $banner_footer)
 					<div class="item text-center" style="background-image: url(/images/banners/{{ $banner_footer->imagen }})">
@@ -11,7 +11,7 @@
 					</div>
 				@endforeach
 			</div>
-		@endif
+		@endif --}}
 	</div>
 </div>
 
