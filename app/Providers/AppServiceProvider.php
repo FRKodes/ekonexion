@@ -12,8 +12,8 @@ class AppServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		$banners_footer = Banner::where('place', '=', 'footer')->where('status', '=', 1)->get();
-		view()->share('banners_footer', $banners_footer);
+		// $banners_footer = Banner::where('place', '=', 'footer')->where('status', '=', 1)->get();
+		// view()->share('banners_footer', $banners_footer);
 	}
 
 	/**
