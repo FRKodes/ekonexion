@@ -5,7 +5,7 @@
 @section('content')
 
 	<div class="container main-banner">
-		{{-- <div class="row">@include('partials.banners-top')</div> --}}
+		<div class="row">@include('partials.banners-top')</div>
 	</div>
 
 	<div class="container last-uploaded bottom">

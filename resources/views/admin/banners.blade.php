@@ -31,7 +31,7 @@
 			</div>
 		@else
 		
-			<h2 class="text-center">No hay banners por el momento.</h2>
+			<h2 class="handlee text-center">No hay banners por el momento.</h2>
 
 		@endif
 		
