@@ -1,12 +1,9 @@
-<div class="container last-uploaded bottom">
-	
+<div class="container last-uploaded bottom">	
 	@if(count($related_ones)>0)
 		<h2 class="handlee verde2 text-center">También te puede interesar</h2>
 		
 		<div class="row">
-
 			@foreach ($related_ones as $related)
-			
 				<div class="col-sm-3 last-uploaded-item">
 					<div class="item-container">
 						<figure class="photo"><a href="negocio/{{ $negocio->id }}">{!! HTML::image('images/negocios/'.$related->logo(), $related->nombre_negocio, array('class'=>'')) !!}</a></figure>
@@ -17,7 +14,6 @@
 					</div>
 				</div>
 			@endforeach
-		
+		</div>
 	@endif
-
 </div>
