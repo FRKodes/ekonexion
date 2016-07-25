@@ -21,15 +21,15 @@
 				</p>
 			</div>
 			<div class="col-sm-6">
-				<iframe width="640" height="360" src="https://www.youtube.com/embed/8352cZa6afY?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+				<iframe width="640" height="360" src="https://www.youtube.com/embed/2y2_7k6MvEc?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
 			</div>
 		</div>
 		
 		<div class="row about-us-images">
-			<div class="col-sm-3"><img src="images/acercade-photo.jpg" alt="acercade-photo"></div>
-			<div class="col-sm-3"><img src="images/acercade-photo.jpg" alt="acercade-photo"></div>
-			<div class="col-sm-3"><img src="images/acercade-photo.jpg" alt="acercade-photo"></div>
-			<div class="col-sm-3"><img src="images/acercade-photo.jpg" alt="acercade-photo"></div>
+			<div class="col-sm-3 hidden"><img src="images/acercade-photo.jpg" alt="acercade-photo"></div>
+			<div class="col-sm-3 hidden"><img src="images/acercade-photo.jpg" alt="acercade-photo"></div>
+			<div class="col-sm-3 hidden"><img src="images/acercade-photo.jpg" alt="acercade-photo"></div>
+			<div class="col-sm-3 hidden"><img src="images/acercade-photo.jpg" alt="acercade-photo"></div>
 		</div>
 
 	</div>	

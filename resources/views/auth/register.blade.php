@@ -12,8 +12,8 @@
 	<div class="row">
 		<div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
 
-			<p class="text-center">{!! HTML::image('images/logo-ekonexion.svg', 'logo ekonexion', array('width'=>'200', 'class'=>'inner-logo')) !!}</p>
-			<p class="text-center login">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, libero, qui.</p>
+			<p class="text-center">{!! HTML::image('images/el-sendero-del-chaman-logo.png', 'logo ekonexion', array('width'=>'200', 'class'=>'inner-logo')) !!}</p>
+			<p class="text-center login hidden">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, libero, qui.</p>
 			<h1 class="handlee verde2">Regístrate</h1>
 
 			<form class="form-horizontal" role="form" method="POST" action="{{ url('/auth/register') }}">
