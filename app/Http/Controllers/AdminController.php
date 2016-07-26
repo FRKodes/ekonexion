@@ -73,7 +73,7 @@ class AdminController extends Controller {
 		if(is_null($request->file('image')) === false ){
 			$image = $request->file('image');
 			$imageFileName = time() . '.' . $image->getClientOriginalExtension();
-			$imageFileName = substr($_SERVER['HTTP_HOST'], 0,7).'-'.$imageFileName;
+			$imageFileName = substr($_SERVER['HTTP_HOST'], 0,10).'-'.$imageFileName;
 			$s3 = \Storage::disk('s3');
 			$filePath = '/negocios/' . $imageFileName;
 			$s3->put($filePath, file_get_contents($image), 'public');
@@ -86,7 +86,7 @@ class AdminController extends Controller {
 			$uploadcount = 0;
 			
 			foreach($files as $file) {
-				$filename = time(). '-' . $uploadcount . '.' . $file->getClientOriginalExtension();
+				$filename = substr($_SERVER['HTTP_HOST'], 0,10).'-'.time(). '-' . $uploadcount . '.' . $file->getClientOriginalExtension();
 				$image = $file;
 				$s3 = \Storage::disk('s3');
 				$filePath = '/negocios/' . $filename;
@@ -240,7 +240,7 @@ class AdminController extends Controller {
 
 		if($request->file('image')){
 			$image = $request->file('image');
-			$imageFileName = time() . '.' . $image->getClientOriginalExtension();
+			$imageFileName = substr($_SERVER['HTTP_HOST'], 0,10).'-'.time() . '.' . $image->getClientOriginalExtension();
 			$s3 = \Storage::disk('s3');
 			$filePath = '/banners/' . $imageFileName;
 			$s3->put($filePath, file_get_contents($image), 'public');
@@ -279,7 +279,7 @@ class AdminController extends Controller {
 
 		if($request->file('imagen')){
 			$image = $request->file('imagen');
-			$imageFileName = time() . '.' . $image->getClientOriginalExtension();
+			$imageFileName = substr($_SERVER['HTTP_HOST'], 0,10).'-'.time() . '.' . $image->getClientOriginalExtension();
 			$s3 = \Storage::disk('s3');
 			$filePath = '/banners/' . $imageFileName;
 			$s3->put($filePath, file_get_contents($image), 'public');
@@ -329,7 +329,7 @@ class AdminController extends Controller {
 		
 		if($request->file('image')){
 			$image = $request->file('image');
-			$imageFileName = time() . '.' . $image->getClientOriginalExtension();
+			$imageFileName = substr($_SERVER['HTTP_HOST'], 0,10).'-'.time() . '.' . $image->getClientOriginalExtension();
 			$s3 = \Storage::disk('s3');
 			$filePath = '/eventos/' . $imageFileName;
 			$s3->put($filePath, file_get_contents($image), 'public');
@@ -370,7 +370,7 @@ class AdminController extends Controller {
 
 		if($request->file('image')){
 			$image = $request->file('image');
-			$imageFileName = time() . '.' . $image->getClientOriginalExtension();
+			$imageFileName = substr($_SERVER['HTTP_HOST'], 0,10).'-'.time() . '.' . $image->getClientOriginalExtension();
 			$s3 = \Storage::disk('s3');
 			$filePath = '/eventos/' . $imageFileName;
 			$s3->put($filePath, file_get_contents($image), 'public');

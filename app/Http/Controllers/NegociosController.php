@@ -75,7 +75,7 @@ class NegociosController extends Controller {
 
 			/**/
 			$image = $request->file('image');
-			$imageFileName = time() . '.' . $image->getClientOriginalExtension();
+			$imageFileName = substr($_SERVER['HTTP_HOST'], 0,10).'-'.time() . '.' . $image->getClientOriginalExtension();
 			$s3 = \Storage::disk('s3');
 			$filePath = '/negocios/' . $imageFileName;
 			$s3->put($filePath, file_get_contents($image), 'public');
@@ -98,7 +98,7 @@ class NegociosController extends Controller {
 
 				/**/
 				$image = $file;
-				$imageFileName = time().'-'. $uploadcount . '.' . $image->getClientOriginalExtension();
+				$imageFileName = substr($_SERVER['HTTP_HOST'], 0,10).'-'.time().'-'. $uploadcount . '.' . $image->getClientOriginalExtension();
 				$s3 = \Storage::disk('s3');
 				$filePath = '/negocios/' . $imageFileName;
 				$s3->put($filePath, file_get_contents($image), 'public');
