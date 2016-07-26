@@ -15,7 +15,7 @@
 		@if($banners_inner)
 			<div class="home-slider banner-inner">
 				@foreach ($banners_inner as $banner_inner)
-					<div class="item text-center" style="background-image: url(images/banners/{{ $banner_inner->imagen }})">
+					<div class="item text-center" style="background-image: url({{ $banner_inner->imagen }})">
 						<a href="{{ $banner_inner->link }}" class="blanco" target="_blank">
 							<p class="title handlee">{{ $banner_inner->title }}</p>
 							<p class="description">{{ $banner_inner->description }}</p>
