@@ -51,7 +51,7 @@
 					</div>
 					<div class="form-group">
 						<div class="col-sm-2">Imagen</div>
-						<div class="col-sm-10">{!! HTML::image('images/eventos/'.$evento->image, $evento->title, ['class'=>'cien'], null) !!}</div>
+						<div class="col-sm-10">{!! HTML::image('https://s3.amazonaws.com/el-sendero-del-chaman/eventos/'.$evento->image, $evento->title, ['class'=>'cien'], null) !!}</div>
 					</div>
 					<div class="form-group">
 						<div class="col-sm-2">{!! Form::label('image', 'Cambiar imagen', []) !!} </div>

@@ -3,7 +3,7 @@
 		@if(count($banners_footer)>0)
 			<div class="home-slider">
 				@foreach ($banners_footer as $banner_footer)
-					<div class="item text-center" style="background-image: url(/images/banners/{{ $banner_footer->imagen }})">
+					<div class="item text-center" style="background-image: url({{ $banner_footer->imagen }})">
 						<a href="{{ $banner_footer->link }}" class="blanco" target="_blank">
 							<p class="title handlee">{{ $banner_footer->title }}</p>
 							<p class="description">{{ $banner_footer->description }}</p>

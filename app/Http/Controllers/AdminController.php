@@ -62,13 +62,22 @@ class AdminController extends Controller {
 		$negocio->correo_responsable = $request->correo_responsable;
 		$negocio->telefono_responsable = $request->telefono_responsable;
 
+		// if(is_null($request->file('image')) === false ){
+		// 	$image = $request->file('image');
+		// 	$filename  = time() . '.' . $image->getClientOriginalExtension();
+		// 	$image = $image->move(public_path().'/images/negocios/', $filename);
+		// 	$negocio->logo = $filename;
+
+		// }
+
 		if(is_null($request->file('image')) === false ){
-
 			$image = $request->file('image');
-			$filename  = time() . '.' . $image->getClientOriginalExtension();
-			$image = $image->move(public_path().'/images/negocios/', $filename);
-			$negocio->logo = $filename;
-
+			$imageFileName = time() . '.' . $image->getClientOriginalExtension();
+			$imageFileName = substr($_SERVER['HTTP_HOST'], 0,7).'-'.$imageFileName;
+			$s3 = \Storage::disk('s3');
+			$filePath = '/negocios/' . $imageFileName;
+			$s3->put($filePath, file_get_contents($image), 'public');
+			$negocio->logo = '//s3.amazonaws.com/el-sendero-del-chaman/negocios/'.$imageFileName;
 		}
 
 		if($request->file('images')[0]){
@@ -77,11 +86,14 @@ class AdminController extends Controller {
 			$uploadcount = 0;
 			
 			foreach($files as $file) {
-				$destinationPath = 'uploads';
 				$filename = time(). '-' . $uploadcount . '.' . $file->getClientOriginalExtension();
-				$upload_success = $file->move(public_path().'/images/negocios/', $filename);
+				$image = $file;
+				$s3 = \Storage::disk('s3');
+				$filePath = '/negocios/' . $filename;
+				$s3->put($filePath, file_get_contents($image), 'public');
+				/**/
 				
-				$last_image = Image::create(['image'=>$filename]);
+				$last_image = Image::create(['image'=>'//s3.amazonaws.com/el-sendero-del-chaman/negocios/'.$filename]);
 				$negocio->images()->attach($last_image);
 
 				$uploadcount ++;
@@ -219,11 +231,20 @@ class AdminController extends Controller {
 		$banner->place = $request->place;
 		$banner->status = $request->status;
 
+		// if($request->file('image')){
+		// 	$image = $request->file('image');
+		// 	$filename  = time() . '.' . $image->getClientOriginalExtension();
+		// 	$image = $image->move(public_path().'/images/banners/', $filename);
+		// 	$banner->imagen = $filename;
+		// }
+
 		if($request->file('image')){
 			$image = $request->file('image');
-			$filename  = time() . '.' . $image->getClientOriginalExtension();
-			$image = $image->move(public_path().'/images/banners/', $filename);
-			$banner->imagen = $filename;
+			$imageFileName = time() . '.' . $image->getClientOriginalExtension();
+			$s3 = \Storage::disk('s3');
+			$filePath = '/banners/' . $imageFileName;
+			$s3->put($filePath, file_get_contents($image), 'public');
+			$banner->imagen = '//s3.amazonaws.com/el-sendero-del-chaman/banners/'.$imageFileName;
 		}
 
 		\Session::flash('added_successfuly', 'El banner se agregó correctamente.');
@@ -249,17 +270,23 @@ class AdminController extends Controller {
 		$banner->status = $request->status;
 		$banner->description = $request->description;
 
-		if( $request->file('imagen') ){
+		// if( $request->file('imagen') ){
+		// 	$image = $request->file('imagen');
+		// 	$filename  = time() . '.' . $image->getClientOriginalExtension();
+		// 	$image = $image->move(public_path().'/images/banners/', $filename);
+		// 	$banner->imagen = $filename;
+		// }
 
+		if($request->file('imagen')){
 			$image = $request->file('imagen');
-			$filename  = time() . '.' . $image->getClientOriginalExtension();
-			$image = $image->move(public_path().'/images/banners/', $filename);
-			$banner->imagen = $filename;
-
+			$imageFileName = time() . '.' . $image->getClientOriginalExtension();
+			$s3 = \Storage::disk('s3');
+			$filePath = '/banners/' . $imageFileName;
+			$s3->put($filePath, file_get_contents($image), 'public');
+			$banner->imagen = '//s3.amazonaws.com/el-sendero-del-chaman/banners/'.$imageFileName;
 		}
 
 		$banner->save();
-
 		return back();
 
 	}
@@ -293,18 +320,24 @@ class AdminController extends Controller {
 		$evento->date = $request->date;
 		$evento->status = $request->status;
 
+		// if($request->file('image')){
+		// 	$image = $request->file('image');
+		// 	$filename  = time() . '.' . $image->getClientOriginalExtension();
+		// 	$image = $image->move(public_path().'/images/eventos/', $filename);
+		// 	$evento->image = $filename;
+		// }
+		
 		if($request->file('image')){
 			$image = $request->file('image');
-			$filename  = time() . '.' . $image->getClientOriginalExtension();
-			$image = $image->move(public_path().'/images/eventos/', $filename);
-			$evento->image = $filename;
+			$imageFileName = time() . '.' . $image->getClientOriginalExtension();
+			$s3 = \Storage::disk('s3');
+			$filePath = '/eventos/' . $imageFileName;
+			$s3->put($filePath, file_get_contents($image), 'public');
+			$evento->image = $imageFileName;
 		}
-
 		\Session::flash('added_successfuly', 'El evento se agregó exitosamente.');
 		$evento->save();
-
 		return back();
-
 	}
 
 	public function createEvento(){
@@ -328,13 +361,20 @@ class AdminController extends Controller {
 		$evento->status = $request->status;
 		$evento->date = $request->date;
 
-		if( $request->file('image') ){
+		// if( $request->file('image') ){
+		// 	$image = $request->file('image');
+		// 	$filename  = time() . '.' . $image->getClientOriginalExtension();
+		// 	$image = $image->move(public_path().'/images/eventos/', $filename);
+		// 	$evento->image = $filename;
+		// }
 
+		if($request->file('image')){
 			$image = $request->file('image');
-			$filename  = time() . '.' . $image->getClientOriginalExtension();
-			$image = $image->move(public_path().'/images/eventos/', $filename);
-			$evento->image = $filename;
-
+			$imageFileName = time() . '.' . $image->getClientOriginalExtension();
+			$s3 = \Storage::disk('s3');
+			$filePath = '/eventos/' . $imageFileName;
+			$s3->put($filePath, file_get_contents($image), 'public');
+			$evento->image = $imageFileName;
 		}
 
 		$evento->save();

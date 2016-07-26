@@ -15,7 +15,7 @@
 						<div class="item-container">
 							<figure class="photo">
 								<a href="negocio/{{ $negocio->id }}">
-									{!! HTML::image('images/negocios/'.$negocio->logo(), $negocio->nombre_negocio, [], null) !!}
+									{!! HTML::image($negocio->logo(), $negocio->nombre_negocio, [], null) !!}
 								</a>
 							</figure>
 							<div class="info">

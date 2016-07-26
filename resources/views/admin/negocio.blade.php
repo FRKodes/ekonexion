@@ -102,7 +102,7 @@
 
 			<div class="form-group col-sm-10 col-sm-offset-1">
 				<div class="col-sm-2">{!! Form::label('logo', 'Logo') !!}</div>
-				<div class="col-sm-10"><figure>{!! HTML::image('images/negocios/'.$negocio->logo(), 'Logo '.$negocio->nombre_negocio, ['width'=>'150']) !!}</figure></div>
+				<div class="col-sm-10"><figure>{!! HTML::image($negocio->logo(), 'Logo '.$negocio->nombre_negocio, ['width'=>'150']) !!}</figure></div>
 			</div>
 			
 			<div class="form-group col-sm-10 col-sm-offset-1">
@@ -114,7 +114,7 @@
 				<div class="col-sm-2">{!! Form::label('imagenes', 'Imágenes') !!}</div>
 				<div class="col-sm-10">
 					@foreach($negocio->images as $image)
-						{!! HTML::image('images/negocios/'.$image->image, 'Imagen '.$negocio->nombre_negocio, ['width'=>'150']) !!}
+						{!! HTML::image($image->image, 'Imagen '.$negocio->nombre_negocio, ['width'=>'150']) !!}
 					@endforeach
 				</div>
 			</div>

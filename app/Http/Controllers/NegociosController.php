@@ -68,10 +68,19 @@ class NegociosController extends Controller {
 		$negocio->telefono_responsable = $request->telefono_responsable;
 
 		if($request->file('image')){
+			// $image = $request->file('image');
+			// $filename  = time() . '.' . $image->getClientOriginalExtension();
+			// $image = $image->move(public_path().'/images/negocios/', $filename);
+			// $negocio->logo = $filename;
+
+			/**/
 			$image = $request->file('image');
-			$filename  = time() . '.' . $image->getClientOriginalExtension();
-			$image = $image->move(public_path().'/images/negocios/', $filename);
-			$negocio->logo = $filename;
+			$imageFileName = time() . '.' . $image->getClientOriginalExtension();
+			$s3 = \Storage::disk('s3');
+			$filePath = '/negocios/' . $imageFileName;
+			$s3->put($filePath, file_get_contents($image), 'public');
+			$negocio->logo = '//s3.amazonaws.com/el-sendero-del-chaman/negocios/'.$imageFileName;
+			/**/
 		}
 
 		\Session::flash('added_successfuly', 'GRACIAS!<br>El negocio se registró exitosamente. En breve nos pondremos en contacto con el encargado del negocio para verificar los datos.');
@@ -83,11 +92,19 @@ class NegociosController extends Controller {
 			$uploadcount = 0;
 			
 			foreach($files as $file) {
-				$destinationPath = 'uploads';
-				$filename = time(). '-' . $uploadcount . '.' . $file->getClientOriginalExtension();
-				$upload_success = $file->move(public_path().'/images/negocios/', $filename);
+				// $destinationPath = 'uploads';
+				// $filename = time(). '-' . $uploadcount . '.' . $file->getClientOriginalExtension();
+				// $upload_success = $file->move(public_path().'/images/negocios/', $filename);
+
+				/**/
+				$image = $file;
+				$imageFileName = time().'-'. $uploadcount . '.' . $image->getClientOriginalExtension();
+				$s3 = \Storage::disk('s3');
+				$filePath = '/negocios/' . $imageFileName;
+				$s3->put($filePath, file_get_contents($image), 'public');
+				/**/
 				
-				$last_image = Image::create(['image'=>$filename]);
+				$last_image = Image::create(['image'=>'//s3.amazonaws.com/el-sendero-del-chaman/negocios/'.$imageFileName]);
 				$negocio->images()->attach($last_image);
 
 				$uploadcount ++;

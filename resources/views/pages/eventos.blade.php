@@ -13,8 +13,8 @@
 
 			@if(count($eventos) > 0)
 				<div class="row">
-					@foreach ($eventos as $evento)	
-						<div class="event-item" style="background-image:url(/images/eventos/{{ $evento->image }})">
+					@foreach ($eventos as $evento)
+						<div class="event-item" style="background-image:url(https://s3.amazonaws.com/el-sendero-del-chaman/eventos/{{ $evento->image }})">
 							<a href="{{ $evento->link }}" class="blanco" title="{{ $evento->title }}" target="_blank">
 								<h2 class="title handlee text-center">{{ $evento->title }}</h2>
 								<p class="text-center">{{ $evento->descripction }}</p>
