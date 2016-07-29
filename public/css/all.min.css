@@ -475,6 +475,9 @@ img.cien {
   width: 100%;
   height: auto;
 }
+a:hover {
+  color: #067090 !important;
+}
 a.btn.btn-link {
   color: #36b0e3;
 }
@@ -528,8 +531,8 @@ body {
   font-family: 'Source Sans Pro', sans-serif;
 }
 .navbar-default {
-  background-color: rgba(13,200,255,0.8);
-  border-color: #0dc8ff;
+  background-color: rgba(204,204,204,0.8);
+  border-color: #ccc;
 }
 .navbar-default .navbar-toggle {
   border: none;
