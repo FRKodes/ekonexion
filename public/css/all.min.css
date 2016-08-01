@@ -926,6 +926,18 @@ footer a {
     display: block;
     width: 100%;
     min-height: 169px;
+    background-color: #e6e7e9;
+  }
+  .last-uploaded-item figure a {
+    display: -ms-flexbox;
+    display: flex;
+    height: 100%;
+  }
+  .last-uploaded-item figure a img {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-item-align: center;
+    align-self: center;
   }
   .last-uploaded-item .info {
     display: block;
