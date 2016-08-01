@@ -6,7 +6,7 @@
 	<div class="container detail">
 			
 		<div class="col-sm-6 white">
-			<figure>{!! HTML::image('images/negocios/'.$negocio->logo(), 'logo ekonexion', array('class'=>'')) !!}</figure>
+			<figure>{!! HTML::image($negocio->logo(), 'logo ekonexion', array('class'=>'')) !!}</figure>
 		</div>
 		<div class="col-sm-6 white description">
 			<h1 class="handlee verde2">{{ $negocio->nombre_negocio }}</h1>
@@ -19,7 +19,7 @@
 			
 			@foreach($negocio->images as $image)
 				<div class="col-xs-6 col-md-4 col-lg-3 white gallery-item">
-					<figure><a href="{{ url('images/negocios/'.$image->image) }}" rel="group" class="fancybox">{!! HTML::image('images/negocios/'.$image->image, 'Imagen '.$negocio->nombre_negocio, []) !!}</figure></a>
+					<figure><a href="{{ url('$image->image) }}" rel="group" class="fancybox">{!! HTML::image($image->image, 'Imagen '.$negocio->nombre_negocio, []) !!}</figure></a>
 				</div>
 			@endforeach
 
