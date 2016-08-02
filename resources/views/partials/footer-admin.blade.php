@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="col-sm-4">
 			<p class="contact handlee">Contáctanos</p>
-			<p>Teléfono: <br><span class="verde3">(33) 3344 5566</span></p>
+			<p>Teléfono: <br><span class="verde3">(00) 0000 0000</span></p>
 		</div>
 		<div class="col-sm-4">
 			<p>
@@ -11,7 +11,7 @@
 		</div>
 		<div class="col-sm-4">
 			<p>
-				Informes: <br><a href="mailto:contacto@ekonexion.com" title="Enviar un correo a contacto@ekonexion.com">contacto@ekonexion.com</a>
+				Informes: <br><a href="mailto:theshamanicjourney@gmail.com" title="Enviar un correo a theshamanicjourney@gmail.com">theshamanicjourney@gmail.com</a>
 			</p>
 		</div>
 	</div>

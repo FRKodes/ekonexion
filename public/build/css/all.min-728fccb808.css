@@ -889,9 +889,15 @@ footer a {
   .m-bottom-20 {
     padding-bottom: 20px;
   }
+  .navbar-default {
+    min-height: 70px;
+  }
   .navbar-nav {
-    padding-top: 15px;
+    padding-top: 25px;
     z-index: 10;
+  }
+  .navbar-brand {
+    padding-top: 24px;
   }
   .navbar-nav li:last-of-type a {
     border: none;

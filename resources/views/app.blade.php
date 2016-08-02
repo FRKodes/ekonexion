@@ -10,6 +10,9 @@
 	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
+	
+	@include('partials.facebook')
+
 	@include('partials.nav')
 
 	@yield('content')

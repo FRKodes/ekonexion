@@ -22,9 +22,8 @@
 			<p>Teléfono: <br><span class="verde3">(00) 0000 0000</span></p>
 		</div>
 		<div class="col-sm-4">
-			<p>
-				Síguenos en Facebook
-			</p>
+			<p> Síguenos en Facebook </p>
+			<div class="fb-like" data-href="https://www.facebook.com/elsenderodelchaman" data-layout="standard" data-action="like" data-size="large" data-show-faces="true" data-share="false"></div>
 		</div>
 		<div class="col-sm-4">
 			<p>

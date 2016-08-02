@@ -10,7 +10,7 @@
 		</div>
 		<div class="col-sm-6 white description">
 			<h1 class="handlee verde2">{{ $negocio->nombre_negocio }}</h1>
-			<div class="description">{{ $negocio->descripcion }}</div>
+			<div class="description">{!! nl2br($negocio->descripcion) !!}</div>
 		</div>
 
 		<div class="row"></div>
@@ -42,15 +42,15 @@
 		@if (Auth::check())
 			<div class="info-container">
 				<div class="col-xs-3 verde handlee">Responsable:</div>
-				<div class="col-xs-9">{{ $negocio->nombre_responsable }}</div>
+				<div class="col-xs-9">{{ ($negocio->nombre_responsable) ? $negocio->nombre_responsable : '--' }}</div>
 				<div class="col-xs-3 verde handlee">Dirección:</div>
-				<div class="col-xs-9">{{ $negocio->direccion }}</div>
+				<div class="col-xs-9">{{ ($negocio->direccion) ? $negocio->direccion : '--' }}</div>
 				<div class="col-xs-3 verde handlee">Ciudad:</div>
-				<div class="col-xs-9">{{ $negocio->ciudad }}</div>
+				<div class="col-xs-9">{{ ($negocio->ciudad) ? $negocio->ciudad :'--' }}</div>
 				<div class="col-xs-3 verde handlee">Estado:</div>
 				<div class="col-xs-9">{{ ($negocio->estado) ? $negocio->estado : '--' }}</div>
 				<div class="col-xs-3 verde handlee">Tel:</div>
-				<div class="col-xs-9">{{ $negocio->telefono }}</div>
+				<div class="col-xs-9">{{ ($negocio->telefono) ? $negocio->telefono : '--' }}</div>
 				<div class="col-xs-3 verde handlee">Correo:</div>
 				<div class="col-xs-9">{!! ($negocio->correo) ? '<a class="azul" href="mailto: '.$negocio->correo.'" title="Enviar un correo a '.$negocio->correo.'">'.$negocio->correo.'</a>' : '--' !!}</div>				
 				<div class="col-xs-3 verde handlee">Web:</div>
