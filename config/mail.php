@@ -54,7 +54,7 @@ return [
 	|
 	*/
 
-	'from' => ['address' => null, 'name' => null],
+	'from' => ['address' => 'no-reply@elsenderodelchaman.com.mx', 'name' => 'El Sendero del Chamán'],
 
 	/*
 	|--------------------------------------------------------------------------

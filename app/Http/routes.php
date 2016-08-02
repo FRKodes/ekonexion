@@ -1,5 +1,8 @@
 <?php
 Route::get('/', 'PagesController@index');
+Route::get('home', function (){
+	return redirect('/');
+});
 Route::get('nosotros', 'PagesController@nosotros');
 Route::get('aviso-de-privacidad', 'PagesController@aviso');
 Route::get('negocio/{id}', 'PagesController@itemDetalle');
