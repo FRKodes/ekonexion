@@ -6,9 +6,9 @@
 			@foreach ($related_ones as $related)
 				<div class="col-sm-3 last-uploaded-item">
 					<div class="item-container">
-						<figure class="photo"><a href="negocio/{{ $negocio->id }}">{!! HTML::image($related->logo(), $related->nombre_negocio, array('class'=>'')) !!}</a></figure>
+						<figure class="photo"><a href="/negocio/{{ $negocio->id }}">{!! HTML::image($related->logo(), $related->nombre_negocio, array('class'=>'')) !!}</a></figure>
 						<div class="info">
-							<div class="title"><a class="verde" href="negocio/{{ $negocio->id }}">{{ $related->nombre_negocio}}</a></div>
+							<div class="title"><a class="verde" href="/negocio/{{ $negocio->id }}">{{ $related->nombre_negocio}}</a></div>
 							<div class="description"> {{ $related->descripcion}} </div>
 						</div>
 					</div>
