@@ -62,12 +62,34 @@ class AdminController extends Controller {
 		$negocio->correo_responsable = $request->correo_responsable;
 		$negocio->telefono_responsable = $request->telefono_responsable;
 
+		if ($request->images_to_delete) {
+			
+			$images = explode(',', $request->images_to_delete);
+			array_shift($images);
+			
+ 			foreach ($images as $image) {
+ 				$slice = explode('@', $image);
+ 				$image_path = explode('/', $slice[1]);
+ 				$image_name = array_pop($image_path);
+ 				$image_id = $slice[0];
+ 				$s3_image_path = str_replace('//', '', $slice[1]);
+				$s3_slices = explode('el-sendero-del-chaman/', $slice[1]);
+				$image_to_delete = (isset($s3_slices[1])) ? $s3_slices[1] : 'NULL.jpg';
+ 				$s3 = \Storage::disk('s3');
+	
+				if($s3->exists($image_to_delete))
+					$s3->delete($image_to_delete);
+
+ 				$negocio->images()->detach($image_id);
+ 			}
+			
+		}
+
 		// if(is_null($request->file('image')) === false ){
 		// 	$image = $request->file('image');
 		// 	$filename  = time() . '.' . $image->getClientOriginalExtension();
 		// 	$image = $image->move(public_path().'/images/negocios/', $filename);
 		// 	$negocio->logo = $filename;
-
 		// }
 
 		if(is_null($request->file('image')) === false ){
@@ -116,6 +138,22 @@ class AdminController extends Controller {
 
 	public function deleteNegocio($id){
 		$negocio = Negocio::find($id);
+
+		$images = $negocio->images;
+
+		foreach ($images as $image) {
+ 			$s3 = \Storage::disk('s3');
+			$s3_slices = explode('el-sendero-del-chaman/', $image->image);
+			$image_to_delete = (isset($s3_slices[1])) ? $s3_slices[1] : 'NULL.jpg';
+
+			if($s3->exists($image_to_delete))
+				$s3->delete($image_to_delete);
+
+			$negocio->images()->detach($image->id);
+			$image = Image::find($image->id);
+			$image->delete();
+		}
+
 		$negocio->delete();
 		return back();
 	}

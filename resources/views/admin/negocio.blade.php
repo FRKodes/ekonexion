@@ -110,13 +110,17 @@
 				<div class="col-sm-10">{!! Form::file('image', ['class'=>'form-control', 'id'=>'image']) !!}</div>
 			</div>
 
-			<div class="form-group col-sm-10 col-sm-offset-1">
+			<div class="form-group col-sm-10 col-sm-offset-1 images-container">
 				<div class="col-sm-2">{!! Form::label('imagenes', 'Imágenes') !!}</div>
-				<div class="col-sm-10">
+				<div class="col-sm-10 inner-container">
 					@foreach($negocio->images as $image)
-						{!! HTML::image($image->image, 'Imagen '.$negocio->nombre_negocio, ['width'=>'150']) !!}
+						<div class="image-item" id="image-{{ $image->id }}">
+							<figure>{!! HTML::image($image->image, 'Imagen '.$negocio->nombre_negocio, []) !!}</figure>
+							<a data-href="{{ $image->image }}" data-id="{{ $image->id }}" class="delete-icon rojo glyphicon glyphicon-remove"></a>
+						</div>
 					@endforeach
 				</div>
+				{!! Form::hidden('images_to_delete', null, ['id'=>'images_delete', 'value'=>'']) !!}
 			</div>
 
 			<div class="form-group col-sm-10 col-sm-offset-1">

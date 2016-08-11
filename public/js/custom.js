@@ -87,6 +87,13 @@ $(document).ready(function() {
     $(this).attr('src', '/images/blank.jpg');
   });
 
+  $('a.delete-icon').on('click', function (){
+    var image_id = $(this).attr('data-id');
+    var image_name = $(this).attr('data-href');
+    $('#images_delete').val($('#images_delete').val() + ',' + image_id + '@' + image_name);
+    $('#image-' + image_id).hide();
+  });
+
 });
 
 

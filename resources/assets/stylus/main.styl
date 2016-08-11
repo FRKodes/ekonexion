@@ -256,23 +256,51 @@ body
 		img
 			width 98%
 	h1.handlee.verde2
+		font-size 2em
+		line-height 1em
 		margin-left initial
 		margin-top 0
-		line-height 1em
-		font-size 2em
 	&.description
 		margin-top -20px
 		padding-bottom 30px
 .gallery-item
 	figure
-		padding 0
-		margin 15px 0
 		height 120px
+		margin 15px 0
 		overflow hidden
+		padding 0
 		img
-			width 100%
-			height auto
 			display block
+			height auto
+			width 100%
+.images-container
+	display block
+	height auto
+	overflow hidden
+	padding-bottom 10px
+	.inner-container
+		.image-item
+			float left
+			margin-right 1%
+			margin-bottom 10px
+			overflow hidden
+			position relative
+			width 48%
+			clear right
+			height 150px
+			img
+				width 100%
+				height auto
+			.delete-icon
+				position absolute
+				right 0
+				top 0
+				background-color white
+				&:hover
+					text-decoration none
+					cursor pointer
+				&:before
+					color red
 .gallery-item:last-of-type
 	padding-bottom 30px
 		
@@ -342,6 +370,11 @@ footer
 	a
 		color verde3
 @media screen and (min-width:480px)
+	.images-container
+		.inner-container
+			.image-item
+				width 48%
+				height 200px
 	.gallery-item
 		figure
 			height 200px
@@ -451,6 +484,11 @@ footer
 		.col-sm-2
 			text-align right
 @media screen and (min-width:992px)
+	.images-container
+		.inner-container
+			.image-item
+				width 48%
+				height 250px
 	.text-center.login
 		padding-left 0
 		padding-right 0
@@ -475,6 +513,10 @@ footer
 				.description
 					height 60px
 @media screen and (min-width:1200px)
+	.images-container
+		.inner-container
+			.image-item
+				height 300px
 	.last-uploaded-item
 		.item-container
 			.photo

@@ -767,25 +767,58 @@ body {
   width: 98%;
 }
 .col-sm-6.white h1.handlee.verde2 {
+  font-size: 2em;
+  line-height: 1em;
   margin-left: initial;
   margin-top: 0;
-  line-height: 1em;
-  font-size: 2em;
 }
 .col-sm-6.white.description {
   margin-top: -20px;
   padding-bottom: 30px;
 }
 .gallery-item figure {
-  padding: 0;
-  margin: 15px 0;
   height: 120px;
+  margin: 15px 0;
   overflow: hidden;
+  padding: 0;
 }
 .gallery-item figure img {
+  display: block;
+  height: auto;
+  width: 100%;
+}
+.images-container {
+  display: block;
+  height: auto;
+  overflow: hidden;
+  padding-bottom: 10px;
+}
+.images-container .inner-container .image-item {
+  float: left;
+  margin-right: 1%;
+  margin-bottom: 10px;
+  overflow: hidden;
+  position: relative;
+  width: 48%;
+  clear: right;
+  height: 150px;
+}
+.images-container .inner-container .image-item img {
   width: 100%;
   height: auto;
-  display: block;
+}
+.images-container .inner-container .image-item .delete-icon {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: #fff;
+}
+.images-container .inner-container .image-item .delete-icon:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+.images-container .inner-container .image-item .delete-icon:before {
+  color: #f00;
 }
 .gallery-item:last-of-type {
   padding-bottom: 30px;
@@ -870,6 +903,10 @@ footer a {
   color: #067090;
 }
 @media screen and (min-width: 480px) {
+  .images-container .inner-container .image-item {
+    width: 48%;
+    height: 200px;
+  }
   .gallery-item figure {
     height: 200px;
   }
@@ -999,6 +1036,10 @@ footer a {
   }
 }
 @media screen and (min-width: 992px) {
+  .images-container .inner-container .image-item {
+    width: 48%;
+    height: 250px;
+  }
   .text-center.login {
     padding-left: 0;
     padding-right: 0;
@@ -1025,6 +1066,9 @@ footer a {
   }
 }
 @media screen and (min-width: 1200px) {
+  .images-container .inner-container .image-item {
+    height: 300px;
+  }
   .last-uploaded-item .item-container .photo {
     height: 245px;
   }
