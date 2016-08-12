@@ -85,18 +85,26 @@ class AdminController extends Controller {
 			
 		}
 
-		// if(is_null($request->file('image')) === false ){
-		// 	$image = $request->file('image');
-		// 	$filename  = time() . '.' . $image->getClientOriginalExtension();
-		// 	$image = $image->move(public_path().'/images/negocios/', $filename);
-		// 	$negocio->logo = $filename;
-		// }
-
 		if(is_null($request->file('image')) === false ){
+
+			/*
+			 * Delete the current image 
+			 * before assign the new one
+			*/
+			$s3 = \Storage::disk('s3');
+			$logo_to_delete = str_replace('//s3.amazonaws.com/el-sendero-del-chaman/', '', $negocio->logo());
+
+			// dd($logo_to_delete);
+
+			if($s3->exists($logo_to_delete))
+				$s3->delete($logo_to_delete);
+
+			/*
+			 * Assign the new logo
+			 */
 			$image = $request->file('image');
 			$imageFileName = time() . '.' . $image->getClientOriginalExtension();
 			$imageFileName = substr($_SERVER['HTTP_HOST'], 0,10).'-'.$imageFileName;
-			$s3 = \Storage::disk('s3');
 			$filePath = '/negocios/' . $imageFileName;
 			$s3->put($filePath, file_get_contents($image), 'public');
 			$negocio->logo = '//s3.amazonaws.com/el-sendero-del-chaman/negocios/'.$imageFileName;
@@ -139,9 +147,8 @@ class AdminController extends Controller {
 	public function deleteNegocio($id){
 		$negocio = Negocio::find($id);
 
-		// dd($negocio->logo());
 		$s3 = \Storage::disk('s3');
-		$logo_to_delete = 'el-sendero-del-chaman/' . $negocio->logo();
+		$logo_to_delete = str_replace('//s3.amazonaws.com/el-sendero-del-chaman/', '', $negocio->logo());
 		if($s3->exists($logo_to_delete))
 		$s3->delete($logo_to_delete);
 
