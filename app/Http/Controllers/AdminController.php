@@ -320,14 +320,17 @@ class AdminController extends Controller {
 		$banner->status = $request->status;
 		$banner->description = $request->description;
 
-		// if( $request->file('imagen') ){
-		// 	$image = $request->file('imagen');
-		// 	$filename  = time() . '.' . $image->getClientOriginalExtension();
-		// 	$image = $image->move(public_path().'/images/banners/', $filename);
-		// 	$banner->imagen = $filename;
-		// }
+		$s3 = \Storage::disk('s3');
 
 		if($request->file('imagen')){
+			/**
+			 * Delete the old one
+			 */
+			$image_to_delete = str_replace('//s3.amazonaws.com/el-sendero-del-chaman/', '', $banner->imagen);
+
+			if($s3->exists($image_to_delete))
+				$s3->delete($image_to_delete);
+
 			$image = $request->file('imagen');
 			$imageFileName = substr($_SERVER['HTTP_HOST'], 0,10).'-'.time() . '.' . $image->getClientOriginalExtension();
 			$s3 = \Storage::disk('s3');
@@ -440,7 +443,7 @@ class AdminController extends Controller {
 
 		if($s3->exists($image_to_delete))
 			$s3->delete($image_to_delete);
-		
+
 		$evento->delete();
 		return back();
 	}
