@@ -139,10 +139,15 @@ class AdminController extends Controller {
 	public function deleteNegocio($id){
 		$negocio = Negocio::find($id);
 
+		// dd($negocio->logo());
+		$s3 = \Storage::disk('s3');
+		$logo_to_delete = 'el-sendero-del-chaman/' . $negocio->logo();
+		if($s3->exists($logo_to_delete))
+		$s3->delete($logo_to_delete);
+
 		$images = $negocio->images;
 
 		foreach ($images as $image) {
- 			$s3 = \Storage::disk('s3');
 			$s3_slices = explode('el-sendero-del-chaman/', $image->image);
 			$image_to_delete = (isset($s3_slices[1])) ? $s3_slices[1] : 'NULL.jpg';
 
