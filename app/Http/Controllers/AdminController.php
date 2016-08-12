@@ -370,13 +370,6 @@ class AdminController extends Controller {
 		$evento->date = $request->date;
 		$evento->status = $request->status;
 
-		// if($request->file('image')){
-		// 	$image = $request->file('image');
-		// 	$filename  = time() . '.' . $image->getClientOriginalExtension();
-		// 	$image = $image->move(public_path().'/images/eventos/', $filename);
-		// 	$evento->image = $filename;
-		// }
-		
 		if($request->file('image')){
 			$image = $request->file('image');
 			$imageFileName = substr($_SERVER['HTTP_HOST'], 0,10).'-'.time() . '.' . $image->getClientOriginalExtension();
@@ -411,17 +404,23 @@ class AdminController extends Controller {
 		$evento->status = $request->status;
 		$evento->date = $request->date;
 
-		// if( $request->file('image') ){
-		// 	$image = $request->file('image');
-		// 	$filename  = time() . '.' . $image->getClientOriginalExtension();
-		// 	$image = $image->move(public_path().'/images/eventos/', $filename);
-		// 	$evento->image = $filename;
-		// }
-
 		if($request->file('image')){
+
+			/*
+			 * Delete the current image 
+			 * before assign the new one
+			*/
+			$s3 = \Storage::disk('s3');
+			$image_to_delete = 'eventos/' . $evento->image;
+
+			if($s3->exists($image_to_delete))
+				$s3->delete($image_to_delete);
+
+			/**
+			 * Assign the new one
+			 */
 			$image = $request->file('image');
 			$imageFileName = substr($_SERVER['HTTP_HOST'], 0,10).'-'.time() . '.' . $image->getClientOriginalExtension();
-			$s3 = \Storage::disk('s3');
 			$filePath = '/eventos/' . $imageFileName;
 			$s3->put($filePath, file_get_contents($image), 'public');
 			$evento->image = $imageFileName;
