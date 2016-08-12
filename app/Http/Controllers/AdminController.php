@@ -346,6 +346,13 @@ class AdminController extends Controller {
 
 	public function deleteBanner($id){
 		$banner = Banner::find($id);
+
+		$s3 = \Storage::disk('s3');
+		$image_to_delete = str_replace('//s3.amazonaws.com/el-sendero-del-chaman/', '', $banner->imagen);
+
+		if($s3->exists($image_to_delete))
+			$s3->delete($image_to_delete);
+
 		$banner->delete();
 		return back();
 	}
