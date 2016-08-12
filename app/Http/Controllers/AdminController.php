@@ -434,6 +434,13 @@ class AdminController extends Controller {
 
 	public function deleteEvento($id){
 		$evento = Evento::find($id);
+
+		$s3 = \Storage::disk('s3');
+		$image_to_delete = 'eventos/' . $evento->image;
+
+		if($s3->exists($image_to_delete))
+			$s3->delete($image_to_delete);
+		
 		$evento->delete();
 		return back();
 	}
