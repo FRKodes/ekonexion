@@ -1,6 +1,6 @@
 <div class="container footer-banner">
 	<div class="row">
-		@if(count($banners_footer)>0)
+		{{-- @if(count($banners_footer)>0)
 			<div class="home-slider">
 				@foreach ($banners_footer as $banner_footer)
 					<div class="item text-center" style="background-image: url({{ $banner_footer->imagen }})">
@@ -11,7 +11,16 @@
 					</div>
 				@endforeach
 			</div>
-		@endif
+		@endif --}}
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<!-- El Sendero del Chaman pie de pagina -->
+		<ins class="adsbygoogle"
+		     style="display:inline-block;width:728px;height:90px"
+		     data-ad-client="ca-pub-7579892442011350"
+		     data-ad-slot="2465497624"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
 	</div>
 </div>
 

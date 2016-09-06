@@ -12,7 +12,7 @@
 	
 	<div class="col-sm-6 banner hidden-xs">
 
-		@if($banners_inner)
+		{{-- @if($banners_inner)
 			<div class="home-slider banner-inner">
 				@foreach ($banners_inner as $banner_inner)
 					<div class="item text-center" style="background-image: url({{ $banner_inner->imagen }})">
@@ -23,7 +23,17 @@
 					</div>
 				@endforeach
 			</div>
-		@endif
+		@endif --}}
+
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<!-- El sendero - recuadro directorio -->
+		<ins class="adsbygoogle"
+		     style="display:inline-block;width:300px;height:250px"
+		     data-ad-client="ca-pub-7579892442011350"
+		     data-ad-slot="6895697226"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
 	</div>
 
 </div>

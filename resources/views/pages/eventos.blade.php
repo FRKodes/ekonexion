@@ -8,7 +8,10 @@
 			<h1 class="handlee verde2 text-center">Eventos</h1>
 			
 			<div class="row">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt voluptatem esse fugiat laborum debitis pariatur praesentium officia, officiis neque accusamus veritatis, nemo in maxime porro dolore provident tenetur earum totam!</p>
+				<p>
+					Promovemos Eventos Espirituales en todo México. Entérate de todas las novedades que existen en tu ciudad. 
+					Contáctanos: <a href="mailto:theshamanicjourney@gmail.com" target="_blank" title="Envíanos un email">theshamanicjourney@gmail.com</a>
+				</p>
 			</div>
 
 			@if(count($eventos) > 0)
