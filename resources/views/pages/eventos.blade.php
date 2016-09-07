@@ -4,7 +4,6 @@
 
 @section('content')
 	<div class="container">
-
 			<h1 class="handlee verde2 text-center">Eventos</h1>
 			
 			<div class="row">
@@ -26,8 +25,7 @@
 					@endforeach
 				</div>
 			@else
-			
+			 {{-- Do nothing --}}
 			@endif
-
-		</div>
+	</div>
 @stop
