@@ -1,6 +1,6 @@
 @extends('admin')
 
-@section('titlePage', 'CMS Ekonexión - Categorías de los negocios')
+@section('titlePage', 'CMS El Sendero del chamán - Categorías de los negocios')
 
 @section('content')
 	<div class="container">

@@ -1,6 +1,6 @@
 @extends('admin')
 
-@section('titlePage', 'Users - CMS Ekonexión')
+@section('titlePage', 'Users - CMS El sendero del chamán')
 
 @section('content')
 	<div class="container">
