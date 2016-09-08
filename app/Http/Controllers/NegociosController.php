@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use Input;
+use Mail;
 use App\Image;
 use App\Negocio;
 use App\Category;
@@ -84,7 +85,18 @@ class NegociosController extends Controller {
 		}
 
 		\Session::flash('added_successfuly', 'GRACIAS!<br>El negocio se registró exitosamente. En breve nos pondremos en contacto con el encargado del negocio para verificar los datos.');
-		$negocio->save();
+		
+		/**
+		 * Send an email if a new busniess was registered
+		 */
+		if ($negocio->save()) {
+			$data = ['name'=>$negocio->nombre_negocio, 'telefono'=>$negocio->telefono, 'correo'=>$negocio->correo];
+
+			Mail::send('emails.new-registered', $data, function($message){
+				$message->to('theshamanicjourney@gmail.com', 'frkalderon@gmail.com')->subject('Un nuevo negocio se ha registrado en el directorio');
+			});
+		}
+
 
 		if($request->file('images')[0]){
 			$files = $request->file('images');

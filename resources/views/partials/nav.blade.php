@@ -15,6 +15,7 @@
 				<li><a href="{{ url('/') }}">Inicio</a></li>
 				<li><a href="{{ url('nosotros') }}">Nosotros</a></li>
 				<li><a href="{{ url('eventos') }}">Eventos</a></li>
+				<li><a href="{{ url('search') }}">Directorio</a></li>
 				<li><a href="{{ url('negocios/create') }}">Inscribe tu negocio</a></li>
 				<li><a href="{{ url('aviso-de-privacidad') }}">Aviso de Privacidad</a></li>
 			</ul>
