@@ -94,6 +94,9 @@ $(document).ready(function() {
     $('#image-' + image_id).hide();
   });
 
+  $('button.login').on('click', function (){
+    $(this).prop( 'disabled', true ); /*avoid to duplicate records*/
+  });
 });
 
 
