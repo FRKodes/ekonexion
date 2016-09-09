@@ -94,9 +94,13 @@ $(document).ready(function() {
     $('#image-' + image_id).hide();
   });
 
-  // $('button.login').on('click', function (){
-  //   $(this).prop( 'disabled', true );
-  // });
+  $('#registerForm :submit').click( function () {
+      $(this).prop("disabled", true).closest('form').append($('<input/>', {
+          type: 'hidden',
+          name: this.name,
+          value: this.value
+      })).submit();
+  });
 });
 
 
