@@ -395,6 +395,22 @@ body {
 .info-container .map-container img {
   width: 100%;
 }
+.info-container .detail-social {
+  padding: 0;
+}
+.info-container .detail-social li {
+  display: inline-block;
+  margin-right: 10px;
+}
+.info-container .detail-social li a {
+  font-size: 1.6em;
+  color: #ccc;
+}
+.info-container .detail-social li a:hover,
+.info-container .detail-social li a:active {
+  color: #f00;
+  text-decoration: none;
+}
 /*Login*/
 .form-group.error .form-control {
   border-color: #f00;
