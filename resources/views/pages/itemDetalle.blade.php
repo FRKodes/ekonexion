@@ -54,7 +54,7 @@
 				<div class="col-xs-3 verde handlee">Correo:</div>
 				<div class="col-xs-9">{!! ($negocio->correo) ? '<a class="azul" href="mailto: '.$negocio->correo.'" title="Enviar un correo a '.$negocio->correo.'">'.$negocio->correo.'</a>' : '--' !!}</div>				
 				<div class="col-xs-3 verde handlee">Web:</div>
-				<div class="col-xs-9">{!! ($negocio->sitio_web) ? '<a class="azul" href="http://'.$negocio->sitio_web.'" target="_blank" title="Visitar el sitio web">'.$negocio->sitio_web.'</a>' : '--' !!}</div>
+				<div class="col-xs-9">{!! ($negocio->sitio_web) ? '<a class="azul" href="'.$negocio->sitio_web.'" target="_blank" title="Visitar el sitio web">'.$negocio->sitio_web.'</a>' : '--' !!}</div>
 				
 				@if($negocio->coords)
 				<div class="col-xs-12 map-container">
