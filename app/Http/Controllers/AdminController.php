@@ -47,7 +47,7 @@ class AdminController extends Controller {
 		$negocio->nombre_negocio = $request->nombre_negocio;
 		$negocio->descripcion = $request->descripcion;
 		$negocio->categoria = $request->categoria;
-		$negocio->correo = $request->email;
+		$negocio->correo = $request->correo;
 		$negocio->telefono = $request->telefono;
 		$negocio->direccion = $request->direccion;
 		$negocio->ciudad = $request->ciudad;
