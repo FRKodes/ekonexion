@@ -47,17 +47,17 @@
 						<div class="form-group"><input type="text" class="form-control" name="coords" placeholder="Coordenadas google Maps" value="{{ old('coords') }}"></div>
 						<div class="form-group">
 							<span class="icon-fb"></span>
-							<input type="text" class="form-control ninety" name="fb" placeholder="Escribe tu nombre de usuario en Facebook" value="{{ old('fb') }}">
+							<input type="text" class="form-control ninety" name="fb" placeholder="Ej. https://www.facebook.com/elsenderodelchaman" value="{{ old('fb') }}">
 						</div>
 
 						<div class="form-group">
 							<span class="icon-tw"></span>
-							<input type="text" class="form-control ninety" name="tw" placeholder="Escribe tu nombre de usuario en Twitter" value="{{ old('tw') }}">
+							<input type="text" class="form-control ninety" name="tw" placeholder="Ej. https://twitter.com/SenderodeChaman" value="{{ old('tw') }}">
 						</div>
 
 						<div class="form-group">
 							<span class="icon-ig"></span>
-							<input type="text" class="form-control ninety" name="ig" placeholder="Escribe tu nombre de usuario en Instagram" value="{{ old('ig') }}">
+							<input type="text" class="form-control ninety" name="ig" placeholder="Ej. https://www.instagram.com/elsenderodelchaman" value="{{ old('ig') }}">
 						</div>
 
 						<div class="form-group">
