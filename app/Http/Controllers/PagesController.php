@@ -38,7 +38,7 @@ class PagesController extends Controller {
 		
 		$negocios = Negocio::where('status', 1)->orderBy('updated_at', 'desc')->get();
 		
-		$ciudades = DB::table('negocios')->orderBy('ciudad', 'asc')->distinct()->lists('ciudad');
+		$ciudades = DB::table('negocios')->where('status', '=', 1)->orderBy('ciudad', 'asc')->distinct()->lists('ciudad');
 		$ciudades_array = array();
 		foreach ($ciudades as $ciudad => $value) {
 			$ciudades_array[$value] = $value;
