@@ -35,9 +35,9 @@
 					{!! Form::open(['class'=>'form-horizontal', 'role'=>'form', 'url'=>'negocios', 'id'=>'registerForm', 'files'=>true]) !!}
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-						<div class="form-group"><input type="text" class="form-control" name="nombre_negocio" placeholder="*Nombre del negocio" value="" data-validate="required"></div>
+						<div class="form-group"><input type="text" class="form-control" name="nombre_negocio" placeholder="*Nombre del negocio" value="{{ old('nombre_negocio') }}" data-validate="required"></div>
 						<div class="form-group"><input type="email" class="form-control" name="email" placeholder="*Email" value="{{ old('email') }}" data-validate="required|email"></div>
-						<div class="form-group"><textarea class="form-control" name="descripcion" placeholder="Escribe una descripción de tu negocio" id="descripcion" cols="30" rows="10"></textarea></div>
+						<div class="form-group"><textarea class="form-control" name="descripcion" placeholder="Escribe una descripción de tu negocio" id="descripcion" cols="30" rows="10">{{ old('descripcion') }}</textarea></div>
 						<div class="form-group">{!! Form::select('categoria', $categories, null, ['class'=>'form-control']) !!}</div>
 						<div class="form-group"><input type="text" class="form-control" name="direccion" placeholder="Dirección" value="{{ old('direccion') }}"></div>
 						<div class="form-group"><input type="text" class="form-control" name="ciudad" placeholder="*Ciudad" value="{{ old('ciudad') }}"></div>
@@ -74,7 +74,7 @@
 						
 						<div class="form-group">
 							{!! Form::label('image', 'Selecciona el logo', []) !!}
-							{!! Form::file('image', ['class'=>'form-control', 'id'=>'image']) !!}
+							{!! Form::file('image', ['class'=>'form-control', 'id'=>'image', 'data-validate'=>'required']) !!}
 						</div>
 
 						<div class="form-group">

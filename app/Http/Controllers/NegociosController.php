@@ -37,15 +37,25 @@ class NegociosController extends Controller {
 	 */
 	public function store(Request $request)
 	{
-		
+		$messages = array(
+			'nombre_negocio.required' => 'El nombre del negocio es obligatorio',
+			'email.required' => 'El email del negocio es obligatorio',
+			'telefono.required' => 'El teléfono del negocio es obligatorio',
+			'nombre_responsable.required' => 'El nombre del responsable es obligatorio',
+			'correo_responsable.required' => 'El email del responsable es obligatorio',
+			'ciudad.required' => 'Debes especificar la ciudad',
+			'telefono_responsable.required' => 'El teléfono del responsable es obligatorio',
+			'image.required' => 'El logo del negocio es obligatorio'
+			);
 		$this->validate($request, ['nombre_negocio'=>'required', 
 								   'email'=>'required', 
 								   'telefono'=>'required', 
 								   'nombre_responsable'=>'required', 
 								   'correo_responsable'=>'required',
 								   'ciudad'=>'required',
-								   'telefono_responsable'=>'required' 
-								   ]);
+								   'telefono_responsable'=>'required',
+								   'image'=>'required'
+								   ], $messages);
 
 		$request->all();
 		
