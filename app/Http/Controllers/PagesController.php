@@ -90,7 +90,7 @@ class PagesController extends Controller {
 		    $selectCategorias[$category->id] = $category->name;
 		}
 		
-		$ciudades = DB::table('negocios')where('status', '=', 1)->orderBy('ciudad', 'asc')->distinct()->lists('ciudad');
+		$ciudades = DB::table('negocios')->where('status', '=', 1)->orderBy('ciudad', 'asc')->distinct()->lists('ciudad');
 		$ciudades_array = array();
 
 		foreach ($ciudades as $ciudad => $value) {
